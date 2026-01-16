@@ -5,9 +5,7 @@ import "aos/dist/aos.css";
 import ImageModal from "../components/ImageModal";
 
 // Import ảnh từ thư mục assets
-import hoanKiem from "../assets/hoankiem.jpg";
-import diaDao from "../assets/diadao.png";
-import ceo from "../assets/ceo.jpg";
+
 import filterIcon from "../assets/filter.png";
 import halongImg from "../assets/halong.jpg";
 
@@ -3807,9 +3805,8 @@ const TraiNghiem = () => {
             />
             {/* Sidebar lọc theo tỉnh (nằm TRONG map, mở bằng hamburger) */}
             <aside
-              className={`absolute left-0 top-0 z-[999] h-[700px] w-[320px] overflow-auto rounded-xl bg-white/95 p-4 shadow-2xl transition-transform ${
-                isFilterPanelVisible ? "translate-x-0" : "-translate-x-[110%]"
-              }`}
+              className={`absolute left-0 top-0 z-[999] h-[700px] w-[320px] overflow-auto rounded-xl bg-white/95 p-4 shadow-2xl transition-transform ${isFilterPanelVisible ? "translate-x-0" : "-translate-x-[110%]"
+                }`}
               style={{ backdropFilter: "blur(6px)" }}
             >
               {/* Nút ĐÓNG */}
@@ -3990,30 +3987,33 @@ const TraiNghiem = () => {
             </span>
           </p>
 
+          {/* Tabs container with horizontal scroll on mobile */}
           <div
-            className="mt-10 mb-4 flex justify-center gap-10"
+            className="mt-10 mb-4 w-full overflow-x-auto pb-2"
             data-aos="fade-up"
             data-aos-delay="400"
+            style={{ scrollbarWidth: 'thin', scrollbarColor: '#dc8154 transparent' }}
           >
-            {["all", "image", "video", "bxh"].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-10 py-3 rounded-full font-semibold transition-all duration-300 ${
-                  activeTab === tab
+            <div className="flex justify-start md:justify-center gap-3 md:gap-10 px-4 md:px-0 min-w-max md:min-w-0">
+              {["all", "image", "video", "bxh"].map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`px-6 md:px-10 py-2.5 md:py-3 rounded-full font-semibold transition-all duration-300 whitespace-nowrap text-sm md:text-base flex-shrink-0 ${activeTab === tab
                     ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white font-semibold shadow-xl shadow-amber-300/50 scale-105 ring-2 ring-amber-400 ring-offset-2"
                     : "bg-white text-gray-700 hover:bg-gradient-to-r hover:from-amber-400 hover:to-amber-500 hover:text-white hover:scale-105 hover:shadow-lg border-2 border-amber-200 hover:border-transparent"
-                }`}
-              >
-                {tab === "all"
-                  ? "All"
-                  : tab === "image"
-                  ? "Ảnh"
-                  : tab === "video"
-                  ? "Video"
-                  : "BXH"}
-              </button>
-            ))}
+                    }`}
+                >
+                  {tab === "all"
+                    ? "All"
+                    : tab === "image"
+                      ? "Ảnh"
+                      : tab === "video"
+                        ? "Video"
+                        : "BXH"}
+                </button>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -4042,64 +4042,83 @@ const TraiNghiem = () => {
 
           <div
             ref={filterPanelRef}
-            className={`absolute top-(-100) left-0 z-100 mt-3 w-full flex flex-wrap items-center gap-x-10 gap-y-6 rounded-2xl bg-white/95 p-6 shadow-2xl backdrop-blur-md transition-all duration-500 ease-in-out ${
-              isFilterPanelVisible
-                ? "visible translate-y-0 opacity-100 scale-100"
-                : "invisible translate-y-4 opacity-0 scale-95"
-            }`}
+            className={`absolute top-(-100) left-0 z-100 mt-3 w-full max-h-[70vh] overflow-y-auto rounded-2xl bg-white/95 p-4 md:p-6 shadow-2xl backdrop-blur-md transition-all duration-500 ease-in-out ${isFilterPanelVisible
+              ? "visible translate-y-0 opacity-100 scale-100"
+              : "invisible translate-y-4 opacity-0 scale-95"
+              }`}
+            style={{ scrollbarWidth: 'thin', scrollbarColor: '#dc8154 #f5f5f4' }}
           >
-            <div className="flex flex-wrap items-center gap-5">
-              <strong className="text-lg font-bold text-[#2e1e10]">
-                Thời kỳ:
-              </strong>
-              <div className="flex flex-wrap items-center gap-5">
-                {PERIODS.map((period) => (
-                  <CustomCheckbox
-                    key={period}
-                    label={period}
-                    value={period}
-                    checked={galleryFilters.periods.has(period)}
-                    onChange={() =>
-                      handleFilterChange(setGalleryFilters, "periods", period)
-                    }
-                  />
-                ))}
+            {/* Scrollable content wrapper */}
+            <div className="flex flex-col md:flex-row md:flex-wrap md:items-center gap-4 md:gap-x-10 md:gap-y-6">
+              {/* Thời kỳ section */}
+              <div className="flex flex-col md:flex-row md:flex-wrap md:items-center gap-3 md:gap-5">
+                <strong className="text-base md:text-lg font-bold text-[#2e1e10] shrink-0">
+                  Thời kỳ:
+                </strong>
+                <div className="flex flex-wrap items-center gap-2 md:gap-5 overflow-x-auto pb-2 md:pb-0" style={{ scrollbarWidth: 'thin' }}>
+                  {PERIODS.map((period) => (
+                    <CustomCheckbox
+                      key={period}
+                      label={period}
+                      value={period}
+                      checked={galleryFilters.periods.has(period)}
+                      onChange={() =>
+                        handleFilterChange(setGalleryFilters, "periods", period)
+                      }
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Divider on mobile */}
+              <div className="h-px w-full bg-amber-200 md:hidden"></div>
+
+              {/* Vùng miền section */}
+              <div className="flex flex-col md:flex-row md:flex-wrap md:items-center gap-3 md:gap-5">
+                <strong className="text-base md:text-lg font-bold text-[#2e1e10] shrink-0">
+                  Vùng miền:
+                </strong>
+                <div className="flex flex-wrap items-center gap-2 md:gap-5">
+                  {REGIONS.map((region) => (
+                    <CustomCheckbox
+                      key={region}
+                      label={region}
+                      value={region}
+                      checked={galleryFilters.regions.has(region)}
+                      onChange={() =>
+                        handleFilterChange(setGalleryFilters, "regions", region)
+                      }
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Divider on mobile */}
+              <div className="h-px w-full bg-amber-200 md:hidden"></div>
+
+              {/* Year slider section */}
+              <div className="flex flex-col md:flex-row min-w-0 md:min-w-[300px] flex-grow gap-3 md:gap-4 md:items-center">
+                <strong className="whitespace-nowrap text-base md:text-lg font-bold text-[#2e1e10]">
+                  Năm ≤{" "}
+                  <span className="font-extrabold text-[#dc8154]">
+                    {galleryFilters.year}
+                  </span>
+                </strong>
+                <input
+                  type="range"
+                  min="700"
+                  max="2024"
+                  value={galleryFilters.year}
+                  step="1"
+                  className="h-2 w-full cursor-pointer appearance-none rounded-full bg-[#2e1e10]/20 outline-none transition-all duration-200"
+                  onChange={(e) => handleYearChange(setGalleryFilters, e)}
+                />
               </div>
             </div>
-            <div className="flex flex-wrap items-center gap-5">
-              <strong className="text-lg font-bold text-[#2e1e10]">
-                Vùng miền:
-              </strong>
-              <div className="flex flex-wrap items-center gap-5">
-                {REGIONS.map((region) => (
-                  <CustomCheckbox
-                    key={region}
-                    label={region}
-                    value={region}
-                    checked={galleryFilters.regions.has(region)}
-                    onChange={() =>
-                      handleFilterChange(setGalleryFilters, "regions", region)
-                    }
-                  />
-                ))}
-              </div>
-            </div>
-            <div className="flex min-w-[300px] flex-grow items-center gap-4">
-              <strong className="whitespace-nowrap text-lg font-bold text-[#2e1e10]">
-                Năm ≤{" "}
-                <span className="font-extrabold text-[#dc8154]">
-                  {galleryFilters.year}
-                </span>
-              </strong>
-              <input
-                type="range"
-                min="700"
-                max="2024"
-                value={galleryFilters.year}
-                step="1"
-                className="h-2 w-full cursor-pointer appearance-none rounded-full bg-[#2e1e10]/20 outline-none transition-all duration-200"
-                onChange={(e) => handleYearChange(setGalleryFilters, e)}
-              />
+
+            {/* Scroll indicator for mobile */}
+            <div className="md:hidden mt-3 text-center text-xs text-amber-600 animate-pulse">
+              ↕ Kéo để xem thêm
             </div>
           </div>
         </section>
