@@ -40,6 +40,7 @@ const NavBar = () => {
         label: "Khám phá",
         submenu: [
           { label: "Trải nghiệm", link: "/trainghiem" },
+          { label: "Triển Lãm", link: "/trienlam" },
           { label: "Tạo tranh", link: "/taotranh" },
           { label: "Công nghệ AI", link: "/congngheai" },
         ],
@@ -80,7 +81,7 @@ const NavBar = () => {
         ],
       },
     ],
-    []
+    [],
   );
 
   const clearExistingTimeout = useCallback(() => {
@@ -105,7 +106,7 @@ const NavBar = () => {
         setOpenSubmenu(index);
       }
     },
-    [menuItems, clearExistingTimeout]
+    [menuItems, clearExistingTimeout],
   );
 
   const handleMenuLeave = useCallback(() => {
@@ -162,9 +163,10 @@ const NavBar = () => {
                           group flex items-center gap-2 
                           px-4 py-2 rounded-lg font-semibold text-[0.938rem]
                           transition-all duration-200 ease-out
-                          ${openSubmenu === index
-                            ? "bg-[#4a2d18] text-[#ffd54f] shadow-inner"
-                            : "text-[#fff1c7] hover:text-[#ffd54f] hover:bg-[#4a2d18]/50"
+                          ${
+                            openSubmenu === index
+                              ? "bg-[#4a2d18] text-[#ffd54f] shadow-inner"
+                              : "text-[#fff1c7] hover:text-[#ffd54f] hover:bg-[#4a2d18]/50"
                           }
                         `}
                         aria-expanded={openSubmenu === index}
@@ -172,8 +174,9 @@ const NavBar = () => {
                       >
                         <span>{item.label}</span>
                         <svg
-                          className={`w-4 h-4 transition-transform duration-300 ease-out ${openSubmenu === index ? "rotate-180" : ""
-                            }`}
+                          className={`w-4 h-4 transition-transform duration-300 ease-out ${
+                            openSubmenu === index ? "rotate-180" : ""
+                          }`}
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -192,9 +195,10 @@ const NavBar = () => {
                         className={`
                           absolute top-full left-0 mt-2 min-w-[240px]
                           transition-all duration-200 ease-out origin-top
-                          ${openSubmenu === index
-                            ? "opacity-100 visible scale-100 translate-y-0"
-                            : "opacity-0 invisible scale-95 -translate-y-2 pointer-events-none"
+                          ${
+                            openSubmenu === index
+                              ? "opacity-100 visible scale-100 translate-y-0"
+                              : "opacity-0 invisible scale-95 -translate-y-2 pointer-events-none"
                           }
                         `}
                         onMouseEnter={handleSubmenuEnter}
@@ -344,9 +348,10 @@ const NavBar = () => {
                       group flex items-center gap-2 
                       px-4 py-2 rounded-lg font-semibold text-[0.938rem]
                       transition-all duration-200 ease-out
-                      ${openSubmenu === menuItems.length
-                        ? "bg-[#4a2d18] text-[#ffd54f] shadow-inner"
-                        : "text-[#fff1c7] hover:text-[#ffd54f] hover:bg-[#4a2d18]/50"
+                      ${
+                        openSubmenu === menuItems.length
+                          ? "bg-[#4a2d18] text-[#ffd54f] shadow-inner"
+                          : "text-[#fff1c7] hover:text-[#ffd54f] hover:bg-[#4a2d18]/50"
                       }
                     `}
                     aria-expanded={openSubmenu === menuItems.length}
@@ -360,13 +365,14 @@ const NavBar = () => {
                       />
                     ) : (
                       <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#ffd54f] to-[#ffb84d] flex items-center justify-center text-[#3b2412] font-bold text-sm">
-                        {user?.name?.charAt(0)?.toUpperCase() || 'U'}
+                        {user?.name?.charAt(0)?.toUpperCase() || "U"}
                       </div>
                     )}
-                    <span>{user?.name || 'Tài khoản'}</span>
+                    <span>{user?.name || "Tài khoản"}</span>
                     <svg
-                      className={`w-4 h-4 transition-transform duration-300 ease-out ${openSubmenu === menuItems.length ? "rotate-180" : ""
-                        }`}
+                      className={`w-4 h-4 transition-transform duration-300 ease-out ${
+                        openSubmenu === menuItems.length ? "rotate-180" : ""
+                      }`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -385,9 +391,10 @@ const NavBar = () => {
                     className={`
                       absolute top-full right-0 mt-2 min-w-[240px]
                       transition-all duration-200 ease-out origin-top-right
-                      ${openSubmenu === menuItems.length
-                        ? "opacity-100 visible scale-100 translate-y-0"
-                        : "opacity-0 invisible scale-95 -translate-y-2 pointer-events-none"
+                      ${
+                        openSubmenu === menuItems.length
+                          ? "opacity-100 visible scale-100 translate-y-0"
+                          : "opacity-0 invisible scale-95 -translate-y-2 pointer-events-none"
                       }
                     `}
                     onMouseEnter={handleSubmenuEnter}
@@ -467,10 +474,10 @@ const NavBar = () => {
                             onClick={async () => {
                               try {
                                 await logout();
-                                toast.success('Đăng xuất thành công!');
-                                navigate('/');
+                                toast.success("Đăng xuất thành công!");
+                                navigate("/");
                               } catch (error) {
-                                toast.error('Đăng xuất thất bại');
+                                toast.error("Đăng xuất thất bại");
                               }
                             }}
                             className="
@@ -509,7 +516,7 @@ const NavBar = () => {
               {/* Cart Button: chỉ hiển thị khi ở trang Cửa hàng */}
               {typeof window !== "undefined" &&
                 /^\/((mua-tranh-in)|(donat-ung-ho)|(thanh-vien-vip)|(cart)|(checkout)|(chi-tiet))/.test(
-                  window.location.pathname
+                  window.location.pathname,
                 ) && (
                   <li className="ml-3 pl-3 border-l border-[#5a3822]/50">
                     <Link
@@ -586,9 +593,10 @@ const NavBar = () => {
         <div
           className={`
             md:hidden overflow-hidden transition-all duration-300 ease-in-out
-            ${isMobileMenuOpen
-              ? "max-h-[calc(100vh-4rem)] opacity-100"
-              : "max-h-0 opacity-0"
+            ${
+              isMobileMenuOpen
+                ? "max-h-[calc(100vh-4rem)] opacity-100"
+                : "max-h-0 opacity-0"
             }
           `}
         >
@@ -612,8 +620,9 @@ const NavBar = () => {
                       >
                         <span>{item.label}</span>
                         <svg
-                          className={`w-5 h-5 transition-transform duration-300 ${openSubmenu === index ? "rotate-180" : ""
-                            }`}
+                          className={`w-5 h-5 transition-transform duration-300 ${
+                            openSubmenu === index ? "rotate-180" : ""
+                          }`}
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -630,9 +639,10 @@ const NavBar = () => {
                       <div
                         className={`
                           overflow-hidden transition-all duration-300 ease-in-out
-                          ${openSubmenu === index
-                            ? "max-h-96 opacity-100"
-                            : "max-h-0 opacity-0"
+                          ${
+                            openSubmenu === index
+                              ? "max-h-96 opacity-100"
+                              : "max-h-0 opacity-0"
                           }
                         `}
                       >
@@ -837,10 +847,10 @@ const NavBar = () => {
                           try {
                             await logout();
                             setIsMobileMenuOpen(false);
-                            toast.success('Đăng xuất thành công!');
-                            navigate('/');
+                            toast.success("Đăng xuất thành công!");
+                            navigate("/");
                           } catch (error) {
-                            toast.error('Đăng xuất thất bại');
+                            toast.error("Đăng xuất thất bại");
                             setIsMobileMenuOpen(false);
                           }
                         }}
