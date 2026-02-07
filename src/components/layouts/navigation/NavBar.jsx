@@ -49,7 +49,7 @@ const NavBar = () => {
         label: "Cộng đồng",
         submenu: [
           { label: "Tin tức và Sự kiện", link: "/events-news" },
-          { label: "Hành trình lịch sử", link: "/vanhoalichsu" },
+          { label: "Văn hóa - Lịch sử", link: "/vanhoalichsu" },
           { label: "Phân tích & Góc nhìn", link: "/phantichgocnhin" },
           { label: "Forum", link: "/forum" },
         ],

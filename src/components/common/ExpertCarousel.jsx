@@ -12,7 +12,7 @@ export default function ExpertCarousel({
   return (
     <div
       className={`group bg-white rounded-xl md:rounded-2xl p-3 md:p-4 lg:p-5 shadow-sm 
-      hover:shadow-xl hover:-translate-y-2 transition-all duration-500 ease-out border-2 border-transparent hover:border-amber-300/70 hover:ring-4 hover:ring-amber-500/10
+      hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out border-2 border-transparent hover:border-amber-300/70 hover:ring-4 hover:ring-amber-500/10
       ${
         featured
           ? "min-h-[240px] md:min-h-[280px]"

@@ -11,16 +11,16 @@ const AnalysisModal = ({ article, categories, onClose }) => {
       onClick={onClose}
     >
       <div
-        className="bg-gradient-to-br from-white via-amber-50/60 to-orange-50/60 rounded-2xl sm:rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border-2 border-amber-200 animate-in zoom-in duration-300 relative"
+        className="bg-gradient-to-br from-white via-amber-50/60 to-orange-50/60 rounded-2xl sm:rounded-3xl w-full max-w-[95vw] sm:max-w-3xl lg:max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl border-2 border-amber-200 animate-in zoom-in duration-300 relative"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="relative w-full">
+        <div className="sticky top-0 z-10 w-full">
           <div className="relative overflow-hidden rounded-t-2xl sm:rounded-t-3xl">
             <img
               src={article.image}
               alt={article.title}
-              className="w-full h-56 sm:h-80 object-cover"
+              className="w-full h-56 sm:h-68 object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
             <div className="absolute top-4 left-4 sm:top-6 sm:left-6">

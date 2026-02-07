@@ -188,52 +188,161 @@ export default function PhanTichGocNhin() {
   //   "Văn hóa",
   // ];
 
+  const floatTransition = (duration, delay = 0) => ({
+    duration: duration,
+    repeat: Infinity,
+    repeatType: "reverse",
+    ease: "easeInOut",
+    delay: delay,
+  });
+
   return (
     <div className="min-h-screen bg-[#f6eadf] text-gray-800 relative overflow-x-hidden">
       {/* z-10 */}
       {/* Decorative Header */}
       <header className="relative text-center py-14 md:py-20 px-5 bg-gradient-to-r from-amber-100 via-orange-50 to-rose-100 border-b-4 border-amber-200 overflow-hidden">
         {/* Decorative Icons */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <Sparkles className="absolute top-8 left-[20%] w-8 h-8 text-amber-400 opacity-60 animate-pulse" />
-          <BookOpen className="absolute top-12 right-[18%] w-10 h-10 text-orange-400 opacity-50" />
-          <TrendingUp className="absolute bottom-8 left-[25%] w-9 h-9 text-rose-400 opacity-60" />
-          <Lightbulb
-            className="absolute bottom-12 right-[12%] w-8 h-8 text-amber-500 opacity-70 animate-pulse"
-            style={{ animationDelay: "1s" }}
-          />
-          <Sparkles className="absolute top-1/2 left-[10%] w-7 h-7 text-orange-300 opacity-40" />
-          <Sparkles
-            className="absolute top-1/3 right-[28%] w-4 h-4 text-rose-300 opacity-50 animate-pulse"
-            style={{ animationDelay: "2s" }}
-          />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5 }}
+          >
+            {/* Icon 1 */}
+            <motion.div
+              className="absolute top-14 left-[20%]"
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Sparkles className="w-8 h-8 text-amber-400 opacity-60 animate-pulse" />
+            </motion.div>
+
+            {/* Icon 2 */}
+            <motion.div
+              className="absolute top-14 right-[18%]"
+              animate={{ y: [0, -20, 0] }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.5,
+              }}
+            >
+              <BookOpen className="w-10 h-10 text-orange-400 opacity-50" />
+            </motion.div>
+
+            {/* Icon 3 */}
+            <motion.div
+              className="absolute bottom-8 left-[25%]"
+              animate={{ y: [0, -12, 0] }}
+              transition={{
+                duration: 3.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1,
+              }}
+            >
+              <TrendingUp className="w-9 h-9 text-rose-400 opacity-60" />
+            </motion.div>
+
+            {/* Icon 4 */}
+            <motion.div
+              className="absolute bottom-12 right-[12%]"
+              animate={{ y: [0, -18, 0] }}
+              transition={{
+                duration: 4.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <Lightbulb
+                className="w-8 h-8 text-amber-500 opacity-70 animate-pulse"
+                style={{ animationDelay: "1s" }}
+              />
+            </motion.div>
+
+            {/* Icon 5 */}
+            <motion.div
+              className="absolute top-1/2 left-[10%]"
+              animate={{ y: [0, -10, 0] }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1.5,
+              }}
+            >
+              <Sparkles className="w-7 h-7 text-orange-300 opacity-40" />
+            </motion.div>
+
+            {/* Icon 6 */}
+            <motion.div
+              className="absolute top-1/3 right-[28%]"
+              animate={{ y: [0, -15, 0] }}
+              transition={{
+                duration: 3.8,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.8,
+              }}
+            >
+              <Sparkles
+                className="w-4 h-4 text-rose-300 opacity-50 animate-pulse"
+                style={{ animationDelay: "2s" }}
+              />
+            </motion.div>
+          </motion.div>
         </div>
+
         <div className="container mx-auto relative">
           <div className="max-w-4xl mx-auto">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full mb-6 shadow-sm border border-amber-200 hover:bg-white/90 hover:scale-105 transition-all cursor-default">
-              <Sparkles className="w-4 h-4 text-amber-600" />
-              <span className="text-sm text-amber-900">
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-5 py-2 rounded-full mb-6 shadow-sm border border-amber-200 hover:bg-white/90 hover:scale-105 transition-all cursor-default"
+            >
+              <Sparkles className="w-6 h-6 text-amber-600" />
+              <span className="text-base text-amber-900">
                 Nền tảng tri thức và chia sẻ
               </span>
-            </div>
+            </motion.div>
+
             {/* Main Title */}
-            <h1 className="font-semibold text-4xl md:text-5xl lg:text-6xl mb-4 bg-gradient-to-r from-amber-900 via-orange-800 to-rose-900 bg-clip-text text-transparent">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="font-semibold text-4xl md:text-5xl lg:text-6xl mb-4 bg-gradient-to-r from-amber-900 via-orange-800 to-rose-900 bg-clip-text text-transparent"
+            >
               Phân tích và Góc nhìn
-            </h1>
+            </motion.h1>
+
             {/* Subtitle */}
-            <p className="text-xs md:text-base lg:text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-xs md:text-base lg:text-xl text-gray-700 mb-8 max-w-2xl mx-auto"
+            >
               Khám phá những bài viết sâu sắc, danh ngôn truyền cảm hứng và
               phỏng vấn độc quyền từ các chuyên gia hàng đầu
-            </p>
+            </motion.p>
+
             {/* Decorative Line */}
-            <div className="flex items-center justify-center gap-2">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex items-center justify-center gap-2"
+            >
               <div className="h-1 w-20 bg-gradient-to-r from-transparent to-amber-400 rounded-full"></div>
               <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
               <div className="h-1 w-32 bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400 rounded-full"></div>
               <div className="w-2 h-2 bg-rose-500 rounded-full"></div>
               <div className="h-1 w-20 bg-gradient-to-l from-transparent to-rose-400 rounded-full"></div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </header>

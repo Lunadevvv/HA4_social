@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import ExperienceGallery from "./ExperienceGallery";
 import { galleryData } from "../../data/historicalSitesData";
@@ -19,6 +21,10 @@ const TrienLam = () => {
   const [activeTab, setActiveTab] = useState("all");
   const [isFilterPanelVisible, setFilterPanelVisible] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+
+  useEffect(() => {
+    AOS.init({ duration: 800, easing: "ease-in-out", once: true, offset: 100 });
+  }, []);
 
   const [galleryFilters, setGalleryFilters] = useState({
     periods: new Set(PERIODS),

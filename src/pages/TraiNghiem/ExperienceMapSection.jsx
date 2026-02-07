@@ -206,12 +206,39 @@ const ExperienceMapSection = ({
 
         const updateSlide = (delta) => {
           if (images.length <= 1) return;
-          currentIndex = (currentIndex + delta + images.length) % images.length;
-          imgEl.src = images[currentIndex];
-          if (counterEl) {
-            counterEl.textContent = `${currentIndex + 1}/${images.length}`;
-          }
-          triggerAnimation();
+
+          const nextIndex =
+            (currentIndex + delta + images.length) % images.length;
+          const nextSrc = images[nextIndex];
+
+          imgEl.style.opacity = "0";
+
+          const preloadImg = new Image();
+          preloadImg.onload = () => {
+            currentIndex = nextIndex;
+            imgEl.src = nextSrc;
+
+            if (counterEl) {
+              counterEl.textContent = `${currentIndex + 1}/${images.length}`;
+            }
+
+            triggerAnimation();
+            imgEl.style.opacity = "1";
+          };
+
+          preloadImg.onerror = () => {
+            currentIndex = nextIndex;
+            imgEl.src = nextSrc;
+
+            if (counterEl) {
+              counterEl.textContent = `${currentIndex + 1}/${images.length}`;
+            }
+
+            triggerAnimation();
+            imgEl.style.opacity = "1";
+          };
+
+          preloadImg.src = nextSrc;
         };
 
         const startAuto = () => {
@@ -881,7 +908,7 @@ const ExperienceMapSection = ({
             </button>
 
             <div className="grid gap-0 md:grid-cols-2">
-              <div className="relative h-64 md:h-[420px] bg-black/5 flex items-center justify-center overflow-hidden">
+              <div className="relative bg-black overflow-hidden">
                 {Array.isArray(detailPlace.images) &&
                 detailPlace.images.length > 0 ? (
                   <>
@@ -889,9 +916,11 @@ const ExperienceMapSection = ({
                       key={detailImageIndex}
                       src={detailPlace.images[detailImageIndex]}
                       alt={detailPlace.name}
-                      className="h-full w-full object-cover animate-slide-in"
+                      className="w-full h-full object-fill animate-slide-in transition-transform duration-500"
                       loading="lazy"
                     />
+
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
 
                     <button
                       onClick={() =>
@@ -902,13 +931,25 @@ const ExperienceMapSection = ({
                         )
                       }
                       disabled={detailPlace.images.length <= 1}
-                      className={`absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white hover:bg-black/70 ${
+                      className={`absolute left-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/80 transition ${
                         detailPlace.images.length <= 1
                           ? "opacity-40 cursor-default"
                           : ""
                       }`}
                     >
-                      ◀
+                      <svg
+                        className="w-4 h-4"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path
+                          d="M15 19l-7-7 7-7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
                     </button>
 
                     <button
@@ -918,23 +959,35 @@ const ExperienceMapSection = ({
                         )
                       }
                       disabled={detailPlace.images.length <= 1}
-                      className={`absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white hover:bg-black/70 ${
+                      className={`absolute right-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/80 transition ${
                         detailPlace.images.length <= 1
                           ? "opacity-40 cursor-default"
                           : ""
                       }`}
                     >
-                      ▶
+                      <svg
+                        className="w-4 h-4"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path
+                          d="M9 5l7 7-7 7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
                     </button>
 
                     {detailPlace.images.length > 1 && (
-                      <div className="absolute bottom-3 right-4 rounded-full bg-black/60 px-3 py-1 text-xs text-white">
+                      <div className="absolute bottom-3 right-4 rounded-full bg-black/70 px-3 py-1 text-xs text-white">
                         {detailImageIndex + 1}/{detailPlace.images.length}
                       </div>
                     )}
                   </>
                 ) : (
-                  <span className="text-sm text-gray-400">
+                  <span className="flex h-full w-full items-center justify-center text-sm text-gray-400 bg-black/5">
                     Không có hình ảnh
                   </span>
                 )}
@@ -1036,7 +1089,16 @@ const createPopupCardHtml = (event) => `
           </button>
         </div>
       </div>
-      <p style="margin:8px 0 12px;color:#4b5563;font-size:14px;line-height:1.5;">
+      <p style="
+        margin:8px 0 12px;
+        color:#4b5563;
+        font-size:14px;
+        line-height:1.5;
+        overflow:hidden;
+        display:-webkit-box;
+        -webkit-line-clamp:3;
+        -webkit-box-orient:vertical;
+      ">
         ${event.description}
       </p>
       <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:4px;">

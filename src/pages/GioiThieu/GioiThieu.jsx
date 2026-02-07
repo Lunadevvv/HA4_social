@@ -1,5 +1,9 @@
 import React, { useEffect, useRef, useState, useLayoutEffect } from 'react';
 import drumBgMusic from '../../assets/Audio/drum_s.mp3';
+import imgFeatureArt from '../../assets/0-1.jpg';
+import imgFeatureHeritage from '../../assets/vanmieu.webp';
+import imgFeatureExperience from '../../assets/123.jpg';
+import imgMockupVertical from '../../assets/dacd0d7a-ad6e-4650-80fd-ebf4302abb9a.png';
 import { 
   Palette, 
   Archive, 
@@ -10,7 +14,9 @@ import {
   Theater, 
   Users, 
   Target, 
-  Landmark 
+  Landmark,
+  Heart,
+  GraduationCap
 } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -49,6 +55,12 @@ const GT_MISSION_POINTS = [
   },
 ];
 
+const MISSION_SLIDE_IMAGES = [imgFeatureExperience, imgFeatureHeritage, imgFeatureExperience, imgFeatureArt, imgFeatureHeritage];
+const GT_MISSION_SLIDES = GT_MISSION_POINTS.map((point, i) => ({
+  ...point,
+  image: MISSION_SLIDE_IMAGES[i],
+}));
+
 const GT_VISION_HIGHLIGHTS = [
   {
     icon: <Building2 size={48} />,
@@ -79,6 +91,41 @@ const GT_STATISTICS = [
   { value: '∞', label: 'Khả năng sáng tạo' },
 ];
 
+// Overview section: 3 feature cards (text theo mẫu)
+const GT_OVERVIEW_FEATURES = [
+  {
+    icon: <Heart size={28} className="gt-overview-feature-icon gt-overview-feature-icon--pink" />,
+    text: 'Nghệ Thuật Ký Ức 4.0 kết hợp nghệ thuật truyền thống với công nghệ hiện đại, đặc biệt là AI.',
+  },
+  {
+    icon: <GraduationCap size={28} className="gt-overview-feature-icon gt-overview-feature-icon--brown" />,
+    text: 'Dự án tái hiện di sản văn hóa Việt Nam trên nền tảng số bằng hình thức sinh động, dễ tiếp cận.',
+  },
+  {
+    icon: <Sparkles size={28} className="gt-overview-feature-icon gt-overview-feature-icon--gold" />,
+    text: 'Công nghệ trí tuệ giúp thế hệ trẻ hiểu và yêu di sản theo cách thức riêng mình.',
+  },
+];
+
+// 3 thẻ full-bleed image (Nghệ thuật & AI, Di sản số hóa, Trải nghiệm mới)
+const GT_FEATURE_IMAGE_CARDS = [
+  {
+    title: 'Nghệ thuật & AI',
+    description: 'Mô hình ứng dụng trí tuệ nhân tạo (AI) giúp chúng tôi tạo ra những trải nghiệm độc đáo, khác biệt.',
+    image: imgFeatureArt,
+  },
+  {
+    title: 'Di sản số hóa',
+    description: 'Tái hiện và lưu giữ di sản văn hóa Việt Nam dưới dạng kỹ thuật số một cách chân thực.',
+    image: imgFeatureHeritage,
+  },
+  {
+    title: 'Trải nghiệm mới',
+    description: 'Mang đến cách tiếp cận văn hóa và nghệ thuật mới mẻ, dễ hiểu, phù hợp với mọi đối tượng.',
+    image: imgFeatureExperience,
+  },
+];
+
 // Hero description text for typing effect
 const HERO_DESCRIPTION_TEXT = "Một sáng kiến sáng tạo kết hợp nghệ thuật truyền thống với trí tuệ nhân tạo, tái hiện di sản văn hóa Việt Nam dưới góc nhìn mới mẻ và sinh động.";
 
@@ -88,6 +135,7 @@ const GioiThieu = () => {
   const BG_MUSIC_KEY = 'bgMusicEnabled';
   const bgAudioRef = useRef(null);
   const [isBgMusicPlaying, setIsBgMusicPlaying] = useState(true); // default true, will be persisted
+  const [missionSlideIndex, setMissionSlideIndex] = useState(0);
 
   // Refs for GSAP animations
   const heroTitleRef = useRef(null);
@@ -95,11 +143,19 @@ const GioiThieu = () => {
   const heroBadgeRef = useRef(null);
   const heroActionsRef = useRef(null);
   const statsRef = useRef(null);
+  const gtStatsTitleRef = useRef(null);
   const overviewRef = useRef(null);
   const missionRef = useRef(null);
   const visionRef = useRef(null);
   const ctaRef = useRef(null);
   const quoteRef = useRef(null);
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      setMissionSlideIndex((prev) => (prev + 1) % GT_MISSION_SLIDES.length);
+    }, 5000);
+    return () => clearInterval(t);
+  }, []);
 
   // GSAP Animations
   useLayoutEffect(() => {
@@ -245,6 +301,26 @@ const GioiThieu = () => {
             }
           );
         }
+
+        // Stats hero image: fade + scale khi xuất hiện (animate inner để hover scale cả div không bị ghi đè)
+        const statsImageInner = statsRef.current.querySelector('.gt-stats-image-inner');
+        if (statsImageInner) {
+          gsap.fromTo(statsImageInner,
+            { opacity: 0, scale: 0.92, x: 24 },
+            {
+              opacity: 1,
+              scale: 1,
+              x: 0,
+              duration: 0.7,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: statsRef.current,
+                start: 'top 95%',
+                toggleActions: 'play none none reverse'
+              }
+            }
+          );
+        }
       }
 
       // === OVERVIEW SECTION - Scroll Reveal + Float ===
@@ -269,10 +345,10 @@ const GioiThieu = () => {
           );
         }
 
-        // Overview main content - slide and fade
-        const overviewMain = overviewRef.current.querySelector('.gt-overview-main');
-        if (overviewMain) {
-          gsap.fromTo(overviewMain,
+        // Overview visual (mockup) - slide and fade
+        const overviewVisual = overviewRef.current.querySelector('.gt-overview-visual');
+        if (overviewVisual) {
+          gsap.fromTo(overviewVisual,
             { opacity: 0, x: -50, filter: 'blur(5px)' },
             {
               opacity: 1,
@@ -281,7 +357,7 @@ const GioiThieu = () => {
               duration: 0.6,
               ease: 'power2.out',
               scrollTrigger: {
-                trigger: overviewMain,
+                trigger: overviewVisual,
                 start: 'top 95%',
                 toggleActions: 'play none none reverse'
               }
@@ -330,49 +406,23 @@ const GioiThieu = () => {
 
       // === MISSION SECTION - Scroll Reveal ===
       if (missionRef.current) {
-        // Mission cards - Smooth staggered reveal (like impact items)
-        const missionCards = missionRef.current.querySelectorAll('.gt-mission-card');
-        gsap.fromTo(missionCards,
-          {
-            opacity: 0,
-            y: 30,
-            scale: 0.98
-          },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.4,
-            stagger: 0.06,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: missionCards[0],
-              start: 'top 95%',
-              toggleActions: 'play none none reverse'
+        const missionSlideshow = missionRef.current.querySelector('.gt-mission-slideshow');
+        if (missionSlideshow) {
+          gsap.fromTo(missionSlideshow,
+            { opacity: 0, y: 40 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: missionSlideshow,
+                start: 'top 92%',
+                toggleActions: 'play none none reverse'
+              }
             }
-          }
-        );
-
-        // Mission titles - Simple fade slide up effect
-        const missionTitles = missionRef.current.querySelectorAll('.gt-mission-title');
-        gsap.fromTo(missionTitles,
-          {
-            opacity: 0,
-            y: 20
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            stagger: 0.1,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: missionCards[0] || missionRef.current,
-              start: 'top 90%',
-              toggleActions: 'play none none reverse'
-            }
-          }
-        );
+          );
+        }
 
         // Mission summary - Blur reveal
         const missionSummary = missionRef.current.querySelector('.gt-mission-summary');
@@ -587,17 +637,7 @@ const GioiThieu = () => {
       }
 
       // === PARALLAX SCROLL EFFECTS ===
-      // Subtle parallax for decorative elements
-      gsap.to('.gioithieu-page::before', {
-        yPercent: 20,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.gioithieu-page',
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: 1
-        }
-      });
+      // (Bỏ animate .gioithieu-page::before vì GSAP không tìm thấy pseudo-element, tránh warning)
 
     });
 
@@ -689,8 +729,30 @@ const GioiThieu = () => {
     setUserEmail(null);
   };
 
+  const FONT_BE_VIETNAM = "'Be Vietnam Pro', sans-serif";
+
+  // Ép font với !important qua setProperty (inline style + important)
+  useEffect(() => {
+    if (!gtStatsTitleRef.current) return;
+    const el = gtStatsTitleRef.current;
+    el.style.setProperty('font-family', FONT_BE_VIETNAM, 'important');
+    const h2 = el.querySelector('h2');
+    const p = el.querySelector('p');
+    if (h2) h2.style.setProperty('font-family', FONT_BE_VIETNAM, 'important');
+    if (p) p.style.setProperty('font-family', FONT_BE_VIETNAM, 'important');
+  }, []);
+
   return (
-    <div className="gioithieu-page">
+    <div id="gioithieu-page" className="gioithieu-page">
+      {/* Ép font Be Vietnam Pro cho block "Thành tựu nổi bật" - style inject để ghi đè Roboto toàn cục */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        #gt-stats-title-block,
+        #gt-stats-title-block *,
+        #gt-stats-title-block h2,
+        #gt-stats-title-block p {
+          font-family: ${FONT_BE_VIETNAM} !important;
+        }
+      `}} />
       {/* Background music audio element and toggle button */}
       <audio
         ref={bgAudioRef}
@@ -726,66 +788,83 @@ const GioiThieu = () => {
           </div>
         </section>
 
-        {/* Statistics Section */}
+        {/* Statistics Section: title giữa trên, 4 cards trái + 1 ảnh lớn phải */}
         <section ref={statsRef} className="gioithieu-stats-section" aria-label="Số liệu nổi bật">
-          <div className="gt-stats-container">
-            <div className="gt-stats-header">
-              <h2>Thành tựu nổi bật</h2>
-              <p>Những con số ấn tượng của dự án Nghệ Thuật Ký Ức 4.0</p>
+          <div className="gt-stats-container gt-stats-layout">
+            <div
+              ref={gtStatsTitleRef}
+              id="gt-stats-title-block"
+              className="gt-stats-header gt-stats-header--top"
+              style={{ fontFamily: FONT_BE_VIETNAM }}
+            >
+              <h2 style={{ fontFamily: FONT_BE_VIETNAM }}>Thành tựu nổi bật</h2>
+              <p style={{ fontFamily: FONT_BE_VIETNAM }}>Những con số ấn tượng của dự án Nghệ Thuật Ký Ức 4.0</p>
             </div>
-            <div className="gioithieu-stats">
-              {GT_STATISTICS.map((stat) => (
-                <article key={stat.label} className="gt-stats-card">
-                  <strong>{stat.value}</strong>
-                  <span>{stat.label}</span>
-                </article>
-              ))}
+            <div className="gt-stats-left">
+              <div className="gioithieu-stats gioithieu-stats-grid">
+                {GT_STATISTICS.map((stat) => (
+                  <article key={stat.label} className="gt-stats-card">
+                    <strong>{stat.value}</strong>
+                    <span>{stat.label}</span>
+                  </article>
+                ))}
+              </div>
+            </div>
+            <div className="gt-stats-right">
+              <div className="gt-stats-image-wrap">
+                <div className="gt-stats-image-inner">
+                  <img src={imgFeatureArt} alt="Nghệ thuật AI - Di sản văn hóa" className="gt-stats-hero-image" />
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Giới thiệu tổng quan */}
-        <section ref={overviewRef} className="gioithieu-section gt-overview" id="gioi-thieu" aria-labelledby="overview-title">
-          <div className="gt-section-container">
+        {/* Một section: Giới thiệu tổng quan (heading + mockup & 3 thẻ phải + 3 thẻ ảnh dưới) */}
+        <section ref={overviewRef} className="gioithieu-section gt-overview gt-overview-unified" id="gioi-thieu" aria-labelledby="overview-title">
+          <div className="gt-section-container gt-overview-container">
             <div className="gt-section-heading">
-              <span className="gt-section-eyebrow">Về dự án</span>
+              <span className="gt-section-eyebrow">VỀ DỰ ÁN</span>
               <h2 id="overview-title">Giới thiệu tổng quan</h2>
             </div>
-            
-            <div className="gt-overview-content">
-              <div className="gt-overview-main">
-                <p className="gt-overview-lead">
-                  Dự án <strong>"Nghệ Thuật Ký Ức 4.0"</strong> là một sáng kiến sáng tạo kết hợp 
-                  nghệ thuật truyền thống với công nghệ hiện đại, đặc biệt là trí tuệ nhân tạo (AI).
-                </p>
-                <p>
-                  Thông qua nền tảng số, dự án tái hiện các di sản văn hóa Việt Nam dưới góc nhìn 
-                  mới mẻ, sinh động, giúp công chúng tiếp cận các giá trị văn hóa một cách gần gũi 
-                  và hấp dẫn hơn.
-                </p>
-                <p>
-                  Chúng tôi tin rằng công nghệ không chỉ là công cụ bảo tồn, mà còn là cầu nối 
-                  giúp thế hệ trẻ hiểu và yêu mến di sản văn hóa của dân tộc theo cách riêng của họ.
-                </p>
-              </div>
 
-              <div className="gt-overview-features">
-                <div className="gt-feature-item">
-                  <div className="gt-feature-icon"><Palette size={48} /></div>
-                  <h3>Nghệ thuật & AI</h3>
-                  <p>Kết hợp sáng tạo truyền thống với công nghệ trí tuệ nhân tạo tiên tiến</p>
-                </div>
-                <div className="gt-feature-item">
-                  <div className="gt-feature-icon"><Landmark size={48} /></div>
-                  <h3>Di sản số hóa</h3>
-                  <p>Tái hiện các di sản văn hóa Việt Nam dưới dạng trải nghiệm tương tác</p>
-                </div>
-                <div className="gt-feature-item">
-                  <div className="gt-feature-icon"><Sparkles size={48} /></div>
-                  <h3>Trải nghiệm mới</h3>
-                  <p>Mang đến cách tiếp cận văn hóa gần gũi và hấp dẫn cho mọi thế hệ</p>
+            <div className="gt-overview-content gt-overview-layout">
+              <div className="gt-overview-visual">
+                {/* Wrapper: mép phải = mép phải ảnh dọc, tránh lòi ra ngoài khi responsive */}
+                <div className="gt-overview-mockup-wrap">
+                  <div className="gt-overview-mockup">
+                    <div className="gt-mockup-screen gt-mockup-desktop">
+                      <img src={imgFeatureHeritage} alt="Nền tảng di sản" />
+                    </div>
+                    <div className="gt-mockup-screen gt-mockup-mobile">
+                      <img src={imgMockupVertical} alt="Di sản văn hóa" />
+                    </div>
+                  </div>
+                  <div className="gt-mockup-spacer" aria-hidden="true" />
                 </div>
               </div>
+              <div className="gt-overview-features gt-overview-cards">
+                {GT_OVERVIEW_FEATURES.map((item, index) => (
+                  <div key={index} className="gt-feature-item gt-overview-card">
+                    <span className="gt-feature-icon">{item.icon}</span>
+                    <p className="gt-overview-card-text">{item.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="gt-feature-cards">
+              {GT_FEATURE_IMAGE_CARDS.map((card, index) => (
+                <article key={index} className="gt-feature-image-card">
+                  <div className="gt-feature-image-card-inner" style={{ backgroundImage: `url(${card.image})` }}>
+                    <div className="gt-feature-image-card-overlay" />
+                    <div className="gt-feature-image-card-content">
+                      <h3>{card.title}</h3>
+                      <p>{card.description}</p>
+                    </div>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -802,17 +881,37 @@ const GioiThieu = () => {
               </p>
             </div>
 
-            <div className="gt-mission-grid">
-              {GT_MISSION_POINTS.map((mission, index) => (
-                <article key={index} className="gt-mission-card">
-                  <div className="gt-mission-card__header">
-                    <span className="gt-mission-icon">{mission.icon}</span>
-                    <div className="gt-mission-number">{String(index + 1).padStart(2, '0')}</div>
+            <div className="gt-mission-slideshow">
+              <div className="gt-mission-slideshow-inner">
+                {GT_MISSION_SLIDES.map((slide, index) => (
+                  <div
+                    key={index}
+                    className={`gt-mission-slide ${index === missionSlideIndex ? 'gt-mission-slide--active' : ''}`}
+                    style={{ backgroundImage: `url(${slide.image})` }}
+                    aria-hidden={index !== missionSlideIndex}
+                  >
+                    <div className="gt-mission-slide-overlay" />
+                    <div className="gt-mission-slide-content">
+                      <span className="gt-mission-slide-number">{String(index + 1).padStart(2, '0')}</span>
+                      <h3 className="gt-mission-slide-title">{slide.title}</h3>
+                      <p className="gt-mission-slide-desc">{slide.description}</p>
+                    </div>
                   </div>
-                  <h3 className="gt-mission-title">{mission.title}</h3>
-                  <p className="gt-mission-description">{mission.description}</p>
-                </article>
-              ))}
+                ))}
+              </div>
+              <div className="gt-mission-slideshow-dots" role="tablist" aria-label="Chọn slide cam kết">
+                {GT_MISSION_SLIDES.map((_, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    role="tab"
+                    aria-selected={index === missionSlideIndex}
+                    aria-label={`Cam kết ${index + 1}`}
+                    className={`gt-mission-slide-dot ${index === missionSlideIndex ? 'gt-mission-slide-dot--active' : ''}`}
+                    onClick={() => setMissionSlideIndex(index)}
+                  />
+                ))}
+              </div>
             </div>
 
             <div className="gt-mission-summary">

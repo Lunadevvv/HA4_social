@@ -1,180 +1,182 @@
-import DinhDocLap from "../assets/Dinh Độc Lập.png";
-import diadaocuchi from "../assets/địa đạo Củ Chi.png";
-import giongcavo from "../assets/giongcavo.png";
-import logomcohungloi from "../assets/logomcohungloi.jpg";
-import dienngochoang from "../assets/dienngochoang.png";
-import mieuthienhau from "../assets/mieuthienhau.png";
-import toaannhandan from "../assets/toaannhandan.png";
-import baotanglichsu from "../assets/baotangthanhpho.png";
-import dinhchihoa from "../assets/Đình Chí Hoà (1).png";
+import botdaythep from "../assets/Bót Dây Thép.png";
+import baotanghcm from "../assets/Bảo tàng Hồ Chí Minh – Chi nhánh Thành phố Hồ Chí Minh.png";
+import baotangmithuat from "../assets/Bảo tàng Mỹ thuật Thành phố Hồ Chí Minh.png";
+import benhviennhidong from "../assets/Bệnh viện Nhi đồng 2.png";
+import chuaanlac from "../assets/Chùa An Lạc.png";
+import chuabuuson from "../assets/Chùa Bửu Sơn.png";
+import chuabuuthanh from "../assets/Chùa Bửu Thạnh.png";
+import chuachauhung from "../assets/Chùa Châu Hưng.png";
+import chuagiachai from "../assets/Chùa Giác Hải.png";
+import chuagiaclam from "../assets/Chùa Giác Lâm.png";
 import chuagiacvien from "../assets/Chùa Giác Viên (1).png";
+import chuahoison from "../assets/Chùa Hội Sơn.png";
+import chuakhanhan from "../assets/Chùa Khánh An - Cơ sở cách mạng trong thời kỳ kháng chiến chống thực dân Pháp.png";
+import chualinhson from "../assets/Chùa Linh Sơn.png";
+import chualongthanh from "../assets/Chùa Long Thạnh.png";
+import chuaphaphoa from "../assets/Chùa Pháp Hoa.png";
+import chuaphuoctuong from "../assets/Chùa Phước Tường.png";
 import chuaphungson from "../assets/Chùa Phụng Sơn (1).png";
-import dinhminhhuong from "../assets/Đình Minh Hương Gia Thạnh (1).png";
+import chuaquantheam from "../assets/Chùa Quán Thế Âm.png";
+import chuasungduc from "../assets/Chùa Sùng Đức.png";
+import chuasactutruongtho from "../assets/Chùa Sắc Tứ Trường Thọ.png";
+import chuasactuhuelam from "../assets/Chùa Sắc tứ Huệ Lâm.png";
+import chuasactutapphuoc from "../assets/Chùa Sắc tứ Tập Phước.png";
+import chuathienphuoc from "../assets/Chùa Thiên Phước.png";
+import chuathienquang from "../assets/Chùa Thiên Quang.png";
+import chuathienton from "../assets/Chùa Thiên Tôn.png";
+import chuatuongquang from "../assets/Chùa Tường Quang - Trụ sở Hội Phật giáo cứu quốc tỉnh Gia Định, cơ sở của Tỉnh ủy Gia Định, Chi bộ xã An Phú Đông.png";
+import chuatunghiem from "../assets/Chùa Từ Nghiêm.png";
+import chuatuquang from "../assets/Chùa Từ Quang.png";
+import chuatuvan from "../assets/Chùa Từ Vân.png";
+import chuavanthanh from "../assets/Chùa Văn Thánh.png";
+import chuaxaloi from "../assets/Chùa Xá Lợi.png";
+import chuaanquang from "../assets/Chùa Ấn Quang.png";
+import chobinhtay from "../assets/Chợ Bình Tây.png";
+import cancurungsac from "../assets/Căn cứ Rừng Sác.png";
+import cancuvung from "../assets/Căn cứ vùng bưng 6 xã Phường Tăng Nhơn Phú B và Phường Phú Hữu.png";
+import cosobimat from "../assets/Cơ sở bí mật của Thành ủy Sài Gòn - Gia Định.png";
+import cosogiauvukhi from "../assets/Cơ sở giấu vũ khí của Biệt động Thành đánh Dinh Độc Lập.png";
+import cosoinan from "../assets/Cơ sở in ấn của Hội Ủng hộ Vệ quốc đoàn.png";
+import caumong from "../assets/Cầu Mống.png";
+import cotcothungu from "../assets/Cột cờ Thủ Ngữ.png";
+import dinhquanhocmon from "../assets/Dinh Quận Hóc Môn.png";
+import DinhDocLap from "../assets/Dinh Độc Lập.png";
+import goomoi from "../assets/Gò Ô Môi.png";
+import hambimat from "../assets/Hầm bí mật chứa vũ khí thời kháng chiến chống Mỹ.png";
+import hambimatintailieu from "../assets/Hầm bí mật in tài liệu Ban Tuyên huấn Hoa vận thời kỳ chống Mỹ cứu nước.png";
 import hoiquanhachuong from "../assets/Hội quán Hà Chương.png";
 import hoiquannghiaan from "../assets/Hội quán Nghĩa An (Miếu Quan Đế hay Chùa Ông).png";
 import hoiquannghianhuan from "../assets/Hội quán Nghĩa Nhuận (1).png";
-import hoiquanonlang from "../assets/Hội quán Ôn Lăng (1).png";
-import hoiquantuethanh from "../assets/Hội quán Tuệ Thành (Chùa Bà).png";
-import mieunhiphu from "../assets/Miếu Nhị Phủ (Chùa Ông Bổn).png";
-import nhathotobac from "../assets/Nhà thờ tổ thợ bạc (hội quán Lệ Châu)(1).png";
+import hoiquanphuocan from "../assets/Hội quán Phước An.png";
+import hoiquanquantan from "../assets/Hội quán Quần Tân.png";
 import hoiquanquynhphu from "../assets/Hội quán Quỳnh Phủ.png";
-import chuahoison from "../assets/Chùa Hội Sơn.png";
-import chuaphuoctuong from "../assets/Chùa Phước Tường.png";
-import dinhtruongtho from "../assets/Đình Trường Thọ.png";
-import dinhxuanhiep from "../assets/Đình Xuân Hiệp (1).png";
-import dinhthanlinhdong from "../assets/Đình Thần Linh Đông.png";
-import dinhbinhhoa from "../assets/Đình Bình Hòa.png";
+import hoiquantamson from "../assets/Hội quán Tam Sơn.png";
+import hoiquantuethanh from "../assets/Hội quán Tuệ Thành (Chùa Bà).png";
+import hoiquanonlang from "../assets/Hội quán Ôn Lăng (1).png";
+import khobomphutho from "../assets/Kho bom Phú Thọ.png";
+import khuditich from "../assets/Khu di tích dân công hỏa tuyến Vĩnh Lộc Mậu Thân 1968.png";
+import khutraigiambenhvien from "../assets/Khu trại giam Bệnh viện Chợ Quán - nơi đồng chí Trần Phú hy sinh.png";
+import khachsan from "../assets/Khách sạn Continental.png";
+import langle from "../assets/Láng Le - Bàu Cò.png";
 import langlevanduyet from "../assets/Lăng Lê Văn Duyệt.png";
-import chuasactutruongtho from "../assets/Chùa Sắc Tứ Trường Thọ.png";
-import dinhthongtayhoi from "../assets/Đình Thông Tây Hội.png";
-import dinhphunhuan from "../assets/Đình Phú Nhuận.png";
 import langtruongtanbuu from "../assets/Lăng Trương Tấn Bửu.png";
 import langvodinguy from "../assets/Lăng Võ Di Nguy.png";
-import chuagiaclam from "../assets/Chùa Giác Lâm.png";
-import cancurungsac from "../assets/Căn cứ Rừng Sác.png";
-import dinhquanhocmon from "../assets/Dinh Quận Hóc Môn.png";
+import langvotanh from "../assets/Lăng Võ Tánh.png";
+import langongthuytuong from "../assets/Lăng Ông Thủy Tướng.png";
+import mieucayqueo from "../assets/Miếu Cây Quéo.png";
+import mieunhiphu from "../assets/Miếu Nhị Phủ (Chùa Ông Bổn).png";
+import mieunoi from "../assets/Miếu Nổi.png";
+import mieusatan from "../assets/Miếu Sa Tân.png";
+import mieuthanhmau from "../assets/Miếu Thánh Mẫu.png";
+import mieuthatphu from "../assets/Miếu Thất phủ Thiên Hậu.png";
+import mieutanky from "../assets/Miếu Tân Kỳ, Miếu Ông Bổn.png";
+import mophanchautrinh from "../assets/Mộ Phan Châu Trinh.png";
+import motien from "../assets/Mộ Tiền hiền Tạ Dương Minh.png";
+import mocoholam from "../assets/Mộ cổ họ Lâm.png";
+import moongphamvanchi from "../assets/Mộ và đền thờ ông Phạm Văn Chí.png";
+import moonglytuong from "../assets/Mộ ông Lý Tường Quang và bà Nguyễn Thị Lâu.png";
+import moongnghi from "../assets/Mộ ông Nghị viên địa hạt Đặng Tân Xuân (trong khuôn viên Học viện Chính trị - Hành chính khu vực II).png";
 import ngabagiong from "../assets/Ngã Ba Giồng.png";
-import bason from "../assets/bason.png";
+import nhaco from "../assets/Nhà cổ dân dụng truyền thống của ông Vương Hồng Sển.png";
+import nhacodandung from "../assets/Nhà cổ dân dụng.png";
+import nhacodothi from "../assets/Nhà cổ đô thị Số 236 đường Bến Vân Đồn, Phường 5.png";
+import nhathothuthiem from "../assets/Nhà thờ Thủ Thiêm.png";
+import nhathotobac from "../assets/Nhà thờ tổ thợ bạc (hội quán Lệ Châu)(1).png";
+import noihophoinghi from "../assets/Nơi họp Hội nghị Xứ ủy Nam kỳ tháng 9-1940.png";
 import noithanhlapannam from "../assets/Nơi thành lập An Nam Cộng sản Đảng năm 1929.png";
 import noithanhlapkybo from "../assets/Nơi thành lập Kỳ bộ Việt Nam Thanh niên đồng chí Hội.png";
-import toadaisuquan from "../assets/Tòa Đại sứ quán Mỹ (nay là Tổng Lãnh sự quán Hợp chủng quốc Hoa Kỳ tại TP. Hồ Chí Minh).png";
-import trusobao from "../assets/Trụ sở báo Dân Chúng.png";
-import cosoinan from "../assets/Cơ sở in ấn của Hội Ủng hộ Vệ quốc đoàn.png";
-import hambimat from "../assets/Hầm bí mật chứa vũ khí thời kháng chiến chống Mỹ.png";
-import cosobantuyenhan from "../assets/cơ sở ban tuyên huấn.png";
-import cosogiauvukhi from "../assets/Cơ sở giấu vũ khí của Biệt động Thành đánh Dinh Độc Lập.png";
-import sochihuytienphuong from "../assets/Sở Chỉ huy tiền phương Phân khu 6 trong chiến dịch Mậu Thân 1968.png";
-import khutraigiambenhvien from "../assets/Khu trại giam Bệnh viện Chợ Quán - nơi đồng chí Trần Phú hy sinh.png";
 import noidongchi from "../assets/Nơi đồng chí Nguyễn Tất Thành ở trước khi ra đi tìm đường cứu nước.png";
-import hambimatintailieu from "../assets/Hầm bí mật in tài liệu Ban Tuyên huấn Hoa vận thời kỳ chống Mỹ cứu nước.png";
-import dinhbinhdong from "../assets/Đình Bình Đông.png";
-import botdaythep from "../assets/Bót Dây Thép.png";
-import dinhphongphu from "../assets/Đình Phong Phú.png";
-import tinhxangocphuong from "../assets/Tịnh xá Ngọc Phương.png";
-import trusophaidoan from "../assets/Trụ sở Phái đoàn liên lạc của Bộ Tổng tư lệnh Quân đội Nhân dân Việt Nam cạnh Phân ban Quốc tế giám sát và kiểm soát đình chiến tại Sài Gòn (1955-1958).png";
-import mophanchautrinh from "../assets/Mộ Phan Châu Trinh.png";
-import diadaophuthohoa from "../assets/Địa đạo Phú Thọ Hòa.png";
-import dinhbinhtruong from "../assets/Đình Bình Trường.png";
-import dinhphulac from "../assets/Đình Phú Lạc.png";
-import nhacodandung from "../assets/Nhà cổ dân dụng.png";
-import chualinhson from "../assets/Chùa Linh Sơn.png";
-import dinhxomhue from "../assets/Đình Xóm Huế.png";
-import dinhcanthanh from "../assets/Đình Cần Thạnh.png";
-import langongthuytuong from "../assets/Lăng Ông Thủy Tướng.png";
-import dinhtanthoinhi from "../assets/Đình Tân Thới Nhì.png";
-import dinhtanthoitu from "../assets/Đình Tân Thới Tứ.png";
-import dinhtanthoinhut from "../assets/Đình Tân Thới Nhứt.png";
-import chuatuquang from "../assets/Chùa Từ Quang.png";
-import dinhphuxuan from "../assets/Đình Phú Xuân.png";
-import dinhnamchon from "../assets/Đình Nam Chơn.png";
-import dinhnhonhoa from "../assets/Đình Nhơn Hòa.png";
-import khachsan from "../assets/Khách sạn Continental.png";
-import baotangmithuat from "../assets/Bảo tàng Mỹ thuật Thành phố Hồ Chí Minh.png";
-import caumong from "../assets/Cầu Mống.png";
-import mocoholam from "../assets/Mộ cổ họ Lâm.png";
-import denthohungvuong from "../assets/Đền thờ Hùng Vương.png";
-import benhviennhidong from "../assets/Bệnh viện Nhi đồng 2.png";
+import quannhanhuong from "../assets/Quán Nhan Hương.png";
+import sochihuytienphuong from "../assets/Sở Chỉ huy tiền phương Phân khu 6 trong chiến dịch Mậu Thân 1968.png";
+import thuydai from "../assets/Thủy Đài số 01 Công trường Quốc tế.png";
 import thcsvotruongtoan from "../assets/Trường THCS Võ Trường Toản.png";
 import thptchuyentrandainghia from "../assets/Trường THPT Chuyên Trần Đại Nghĩa.png";
-import nhathothuthiem from "../assets/Nhà thờ Thủ Thiêm.png";
-import tuvienhoidongmen from "../assets/Tu viện Hội Dòng Mến Thánh Giá Thủ Thiêm.png";
-import dinhtangphu from "../assets/Đình Tăng Phú.png";
-import chuabuuson from "../assets/Chùa Bửu Sơn.png";
-import moongnghi from "../assets/Mộ ông Nghị viên địa hạt Đặng Tân Xuân (trong khuôn viên Học viện Chính trị - Hành chính khu vực II).png";
-import chuathienphuoc from "../assets/Chùa Thiên Phước.png";
-import dinhthanlinhtay from "../assets/Đình Thần Linh Tây.png";
-import motien from "../assets/Mộ Tiền hiền Tạ Dương Minh.png";
-import dinhbinhtho from "../assets/Đình Bình Thọ.png";
-import chuasungduc from "../assets/Chùa Sùng Đức.png";
-import dinhxuanhoa from "../assets/Đình Xuân Hòa.png";
-import mieuthanhmau from "../assets/Miếu Thánh Mẫu.png";
-import dinhphuthanh from "../assets/Đình Phú Thạnh.png";
-import thptnguyenthiminhkhai from "../assets/Trường THPT Nguyễn Thị Minh Khai.png";
-import thuydai from "../assets/Thủy Đài số 01 Công trường Quốc tế.png";
-import vienpasteur from "../assets/Viện Pasteur.png";
 import thptmariecurie from "../assets/Trường THPT Marie Curie.png";
-import thptlequydon from "../assets/Trường Trung học Lê Quý Đôn (Trường THCS – Trường THPT).png";
-import dinhkhanhhoi from "../assets/Đình Khánh Hội.png";
-import dinhvinhhoi from "../assets/Đình Vĩnh Hội.png";
-import baotanghcm from "../assets/Bảo tàng Hồ Chí Minh – Chi nhánh Thành phố Hồ Chí Minh.png";
-import nhacodothi from "../assets/Nhà cổ đô thị Số 236 đường Bến Vân Đồn, Phường 5.png";
-import hoiquantamson from "../assets/Hội quán Tam Sơn.png";
+import thptnguyenthiminhkhai from "../assets/Trường THPT Nguyễn Thị Minh Khai.png";
 import thptlehongphong from "../assets/Trường THPT chuyên Lê Hồng Phong.png";
-import thcshongbang from "../assets/thcs hồng bàng.png";
-import dinhtankieng from "../assets/Đình Tân Kiểng.png";
-import hoiquanphuocan from "../assets/Hội quán Phước An.png";
-import tuduongholy from "../assets/Từ đường họ Lý.png";
+import thptlequydon from "../assets/Trường Trung học Lê Quý Đôn (Trường THCS – Trường THPT).png";
+import trusophaidoan from "../assets/Trụ sở Phái đoàn liên lạc của Bộ Tổng tư lệnh Quân đội Nhân dân Việt Nam cạnh Phân ban Quốc tế giám sát và kiểm soát đình chiến tại Sài Gòn (1955-1958).png";
+import trusobao from "../assets/Trụ sở báo Dân Chúng.png";
+import tuvienhoidongmen from "../assets/Tu viện Hội Dòng Mến Thánh Giá Thủ Thiêm.png";
+import toadaisuquan from "../assets/Tòa Đại sứ quán Mỹ (nay là Tổng Lãnh sự quán Hợp chủng quốc Hoa Kỳ tại TP. Hồ Chí Minh).png";
+import tinhxangocphuong from "../assets/Tịnh xá Ngọc Phương.png";
 import tuduongphuockien from "../assets/Từ đường Phước Kiến.png";
-import dinhbinhtien from "../assets/Đình Bình Tiên.png";
-import chuagiachai from "../assets/Chùa Giác Hải.png";
-import chobinhtay from "../assets/Chợ Bình Tây.png";
-import dinhtanquydong from "../assets/Đình Tân Quy Đông.png";
-import chuasactuhuelam from "../assets/Chùa Sắc tứ Huệ Lâm.png";
-import dinhhungphu from "../assets/Đình Hưng Phú.png";
-import dinhbinhtridong from "../assets/Đình Bình Đông.png";
-import chuasactutapphuoc from "../assets/Chùa Sắc tứ Tập Phước.png";
-import chuavanthanh from "../assets/Chùa Văn Thánh.png";
-import dinhbinhquoitay from "../assets/Đình Bình Quới Tây.png";
-import nhaco from "../assets/Nhà cổ dân dụng truyền thống của ông Vương Hồng Sển.png";
-import dinhannhon from "../assets/Đình An Nhơn.png";
-import hoiquanquantan from "../assets/Hội quán Quần Tân.png";
-import chuaanlac from "../assets/Chùa An Lạc.png";
-import mieuthatphu from "../assets/Miếu Thất phủ Thiên Hậu.png";
-import mieunoi from "../assets/Miếu Nổi.png";
-import dinhanhoi from "../assets/Đình An Hội.png";
-import mieusatan from "../assets/Miếu Sa Tân.png";
-import chuaphulong from "../assets/chùa Phú Long.png";
-import langvotanh from "../assets/Lăng Võ Tánh.png";
-import mieutanky from "../assets/Miếu Tân Kỳ, Miếu Ông Bổn.png";
-import moonglytuong from "../assets/Mộ ông Lý Tường Quang và bà Nguyễn Thị Lâu.png";
-import dinhtantuc from "../assets/Đình Tân Túc.png";
-import khuditich from "../assets/Khu di tích dân công hỏa tuyến Vĩnh Lộc Mậu Thân 1968.png";
-import langle from "../assets/Láng Le - Bàu Cò.png";
-import dinhduongvanhanh from "../assets/Đình Dương Văn Hạnh.png";
-import dinhbinhkhanh from "../assets/Đình Bình Khánh và Mộ Tiền hiền Trần Quang Đạo.png";
-import dinhcaysop from "../assets/Đình Cây Sộp.png";
-import dinhtanthong from "../assets/Đình Tân Thông.png";
-import chuathienquang from "../assets/Chùa Thiên Quang.png";
-import denthoongphanconghon from "../assets/Đền thờ ông Phan Công Hớn.png";
-import noihophoinghi from "../assets/Nơi họp Hội nghị Xứ ủy Nam kỳ tháng 9-1940.png";
-import quannhanhuong from "../assets/Quán Nhan Hương.png";
-import cotcothungu from "../assets/Cột cờ Thủ Ngữ.png";
-import chuaanquang from "../assets/Chùa Ấn Quang.png";
-import chuatunghiem from "../assets/Chùa Từ Nghiêm.png";
-import chuakhanhan from "../assets/Chùa Khánh An - Cơ sở cách mạng trong thời kỳ kháng chiến chống thực dân Pháp.png";
-import chuatuongquang from "../assets/Chùa Tường Quang - Trụ sở Hội Phật giáo cứu quốc tỉnh Gia Định, cơ sở của Tỉnh ủy Gia Định, Chi bộ xã An Phú Đông.png";
-import dinhhanhphu from "../assets/Đình Hanh Phú - Kho lương thực của Ban Tiếp tế tỉnh Gia Định ở Căn cứ An Phú Đông.png";
-import mieucayqueo from "../assets/Miếu Cây Quéo.png";
-import denthonguyenanhthu from "../assets/Đền thờ Nguyễn Ánh Thủ.png";
-import dinhtanhoi from "../assets/Đình Tân Hội.png";
-import dinhanphu from "../assets/Đình An Phú.png";
-import cancuvung from "../assets/Căn cứ vùng bưng 6 xã Phường Tăng Nhơn Phú B và Phường Phú Hữu.png";
-import chuabuuthanh from "../assets/Chùa Bửu Thạnh.png";
-import dinhthaibinh from "../assets/Đình Thái Bình.png";
-import chuachauhung from "../assets/Chùa Châu Hưng.png";
-import chuaxaloi from "../assets/Chùa Xá Lợi.png";
-import chuathienton from "../assets/Chùa Thiên Tôn.png";
-import cosobimat from "../assets/Cơ sở bí mật của Thành ủy Sài Gòn - Gia Định.png";
-import moongphamvanchi from "../assets/Mộ và đền thờ ông Phạm Văn Chí.png";
-import goomoi from "../assets/Gò Ô Môi.png";
+import tuduongholy from "../assets/Từ đường họ Lý.png";
+import vienpasteur from "../assets/Viện Pasteur.png";
+import baotanglichsu from "../assets/baotangthanhpho.png";
+import bason from "../assets/bason.png";
 import chualonghoa from "../assets/chùa Long Hòa.png";
 import chuaphapquang from "../assets/chùa Pháp Quang.png";
-import dinhcauson from "../assets/Đình Cầu Sơn.png";
-import chualongthanh from "../assets/Chùa Long Thạnh.png";
-import dinhtankhai from "../assets/Đình Tân Khai.png";
-import dinhhanhthong from "../assets/Đình Hanh Thông.png";
-import chuatuvan from "../assets/Chùa Từ Vân.png";
-import chuaquantheam from "../assets/Chùa Quán Thế Âm.png";
-import chuaphaphoa from "../assets/Chùa Pháp Hoa.png";
-import khobomphutho from "../assets/Kho bom Phú Thọ.png";
-import dinhtanhoatay from "../assets/Đình Tân Hòa Tây.png";
-import dinhhoathanh from "../assets/Đình Hòa Thạnh.png";
-import dinhtansonnhi from "../assets/Đình Tân Sơn Nhì.png";
+import chuaphulong from "../assets/chùa Phú Long.png";
+import cosobantuyenhan from "../assets/cơ sở ban tuyên huấn.png";
+import dienngochoang from "../assets/dienngochoang.png";
+import giongcavo from "../assets/giongcavo.png";
+import hadilao1 from "../assets/hadilao1.png";
+import hadilao2 from "../assets/hadilao2.jpg";
 import hanuri1 from "../assets/hanuri1.jpg";
 import hanuri2 from "../assets/hanuri2.jpg";
 import hanuri3 from "../assets/hanuri3.jpg";
-import hadilao1 from "../assets/hadilao1.png";
-import hadilao2 from "../assets/hadilao2.jpg";
+import logomcohungloi from "../assets/logomcohungloi.jpg";
+import mieuthienhau from "../assets/mieuthienhau.png";
+import thcshongbang from "../assets/thcs hồng bàng.png";
+import toaannhandan from "../assets/toaannhandan.png";
+import dinhanhoi from "../assets/Đình An Hội.png";
+import dinhannhon from "../assets/Đình An Nhơn.png";
+import dinhanphu from "../assets/Đình An Phú.png";
+import dinhbinhhoa from "../assets/Đình Bình Hòa.png";
+import dinhbinhkhanh from "../assets/Đình Bình Khánh và Mộ Tiền hiền Trần Quang Đạo.png";
+import dinhbinhquoitay from "../assets/Đình Bình Quới Tây.png";
+import dinhbinhtho from "../assets/Đình Bình Thọ.png";
+import dinhbinhtien from "../assets/Đình Bình Tiên.png";
+import dinhbinhtruong from "../assets/Đình Bình Trường.png";
+import {
+  default as dinhbinhdong,
+  default as dinhbinhtridong,
+} from "../assets/Đình Bình Đông.png";
+import dinhchihoa from "../assets/Đình Chí Hoà (1).png";
+import dinhcaysop from "../assets/Đình Cây Sộp.png";
+import dinhcanthanh from "../assets/Đình Cần Thạnh.png";
+import dinhcauson from "../assets/Đình Cầu Sơn.png";
+import dinhduongvanhanh from "../assets/Đình Dương Văn Hạnh.png";
+import dinhhanhphu from "../assets/Đình Hanh Phú - Kho lương thực của Ban Tiếp tế tỉnh Gia Định ở Căn cứ An Phú Đông.png";
+import dinhhanhthong from "../assets/Đình Hanh Thông.png";
+import dinhhoathanh from "../assets/Đình Hòa Thạnh.png";
+import dinhhungphu from "../assets/Đình Hưng Phú.png";
+import dinhkhanhhoi from "../assets/Đình Khánh Hội.png";
+import dinhminhhuong from "../assets/Đình Minh Hương Gia Thạnh (1).png";
+import dinhnamchon from "../assets/Đình Nam Chơn.png";
+import dinhnhonhoa from "../assets/Đình Nhơn Hòa.png";
+import dinhphongphu from "../assets/Đình Phong Phú.png";
+import dinhphulac from "../assets/Đình Phú Lạc.png";
+import dinhphunhuan from "../assets/Đình Phú Nhuận.png";
+import dinhphuthanh from "../assets/Đình Phú Thạnh.png";
+import dinhphuxuan from "../assets/Đình Phú Xuân.png";
+import dinhthaibinh from "../assets/Đình Thái Bình.png";
+import dinhthongtayhoi from "../assets/Đình Thông Tây Hội.png";
+import dinhthanlinhtay from "../assets/Đình Thần Linh Tây.png";
+import dinhthanlinhdong from "../assets/Đình Thần Linh Đông.png";
+import dinhtruongtho from "../assets/Đình Trường Thọ.png";
+import dinhtanhoatay from "../assets/Đình Tân Hòa Tây.png";
+import dinhtanhoi from "../assets/Đình Tân Hội.png";
+import dinhtankhai from "../assets/Đình Tân Khai.png";
+import dinhtankieng from "../assets/Đình Tân Kiểng.png";
+import dinhtanquydong from "../assets/Đình Tân Quy Đông.png";
+import dinhtansonnhi from "../assets/Đình Tân Sơn Nhì.png";
+import dinhtanthong from "../assets/Đình Tân Thông.png";
+import dinhtanthoinhi from "../assets/Đình Tân Thới Nhì.png";
+import dinhtanthoinhut from "../assets/Đình Tân Thới Nhứt.png";
+import dinhtanthoitu from "../assets/Đình Tân Thới Tứ.png";
+import dinhtantuc from "../assets/Đình Tân Túc.png";
+import dinhtangphu from "../assets/Đình Tăng Phú.png";
+import dinhvinhhoi from "../assets/Đình Vĩnh Hội.png";
+import dinhxuanhiep from "../assets/Đình Xuân Hiệp (1).png";
+import dinhxuanhoa from "../assets/Đình Xuân Hòa.png";
+import dinhxomhue from "../assets/Đình Xóm Huế.png";
+import denthohungvuong from "../assets/Đền thờ Hùng Vương.png";
+import denthonguyenanhthu from "../assets/Đền thờ Nguyễn Ánh Thủ.png";
+import denthoongphanconghon from "../assets/Đền thờ ông Phan Công Hớn.png";
+import diadaophuthohoa from "../assets/Địa đạo Phú Thọ Hòa.png";
+import diadaocuchi from "../assets/địa đạo Củ Chi.png";
 
 export const defaultYearByPeriod = (p) => {
   switch (p) {
@@ -2221,6 +2223,675 @@ export const mapDataRaw = [
     description:
       "Nhà hàng lẩu được thành lập vào năm 1994 tại thành phố Giản Dương, tỉnh Tứ Xuyên, phục vụ trực tiếp xuyên tỉnh lớn, tích hợp các đặc tính của lẩu từ khắp nơi trên thế giới. Người sáng lập là Trương Dũng sinh năm 1970.",
     images: [hadilao1, hadilao2],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+
+  // Ẩm thực & uống
+  {
+    name: "🍲 Bún mắm Cô Ba",
+    lat: "10.7718559",
+    lng: "106.627455",
+    description:
+      "Quán ăn tọa lạc tại 264 Hòa Bình, Hiệp Tân, Quận Tân Phú, mở cửa từ 07h00 đến 21h00, thuận tiện để ghé ăn trong ngày. Mức giá dao động từ 35.000 – 55.000 đồng, tương xứng với chất lượng món ăn. Thực đơn đa dạng với các món đặc trưng như bún mắm, bún đầu cá, lẩu mắm; trong đó bún mắm đặc biệt được yêu thích nhờ topping đầy đặn, rau ăn kèm phong phú và nước dùng đậm đà vừa miệng. Quán phục vụ cả ăn tại chỗ lẫn giao hàng qua GrabFood và ShopeeFood, phù hợp cho những ai muốn thưởng thức hương vị miền Tây quen thuộc tại khu vực Tân Phú, dù không gian quán không quá rộng và giá nhỉnh hơn một số quán bình dân.",
+    images: [
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769756686/bun-mam_3_jvdcj3.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769756685/bun-mam_gqwvp1.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769756685/bunmamcoba_hahxjw.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769756685/b%C3%BAn_m%E1%BA%AFm_c%C3%B4_ba_bprc3b.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769756684/bunmamcoba_ne2o1k.jpg",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769756684/bunmamcoba_sk112y.png",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769756683/b%C3%BAn_m%E1%BA%AFm_c%C3%B4_ba_1_yp1arj.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "🍲 Gà Ta Quê Nhà",
+    lat: "10.796356",
+    lng: "106.630226",
+    description:
+      "Quán ăn nằm tại 346 Tân Sơn Nhì, phường Tân Sơn Nhì, quận Tân Phú, TP.HCM, mở cửa từ 09h00 đến 21h00 hằng ngày và thường đông khách vào buổi chiều tối. Mức giá dao động từ 20.000 – 50.000 đồng, khá dễ chịu và phù hợp với nhiều đối tượng. Thực đơn phong phú với các món từ gà như cơm gà, cháo, xôi gà, gỏi, lẩu gà, gà hấp – chiên, đáp ứng tốt nhu cầu đi ăn một mình lẫn theo nhóm. Trong đó, gỏi lòng gà trứng non là món được nhiều người lựa chọn nhờ hương vị đậm đà và phần ăn khá đầy đặn. Quán có không gian rộng rãi, menu đa dạng, giá cả hợp lý và hỗ trợ giao hàng qua GrabFood, ShopeeFood, dù thời gian giao hàng vào giờ cao điểm đôi lúc còn hơi chậm.",
+    images: [
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769756873/ga_ta_que_nha_2_e3ejwy.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769756873/ga_ta_que_nha_3_ohwyfe.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769756872/ga_ta_que_nha_8_r7nrwy.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769756873/ga_ta_que_nha_1_fc38ci.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769756872/ga_ta_que_nha_vmykc3.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769756872/ga_ta_que_nha_9_vuehyh.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769756872/ga_ta_que_nha_6_em4xsl.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769756871/ga_ta_que_nha_5_lxvwva.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769756872/ga_ta_que_nha_7_cgiclx.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769756871/ga_ta_que_nha_4_iroomc.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "🍲 Cháo Sá Sùng Khô",
+    lat: "10.775782",
+    lng: "106.644252",
+    description:
+      "Quán ăn nằm tại 104/22B Trịnh Đình Trọng, phường Phú Trung, quận Tân Phú, TP.HCM, mở cửa hai khung giờ từ 06h00 – 11h00 và 15h00 – 22h00, phục vụ xuyên suốt trong tuần. Mức giá dao động khoảng 35.000 – 80.000 đồng, tương xứng với chất lượng món ăn. Thực đơn nổi bật với các món mang phong vị Hoa như cháo sá sùng, cháo thập cẩm, gà ác tiềm thuốc Bắc; trong đó cháo sá sùng khô tô đặc biệt được nhiều thực khách lựa chọn nhờ hương vị đậm đà, nấu theo công thức gia truyền. Quán ghi điểm nhờ món ăn chất lượng, nêm nếm vừa miệng và có hỗ trợ giao hàng qua ShopeeFood, dù vị trí nằm sâu trong hẻm có thể hơi khó tìm với khách lần đầu ghé thăm.",
+    images: [
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757004/chao_sa_sung_o8xm6h.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757003/chao_sa_sung_2_dhn7ml.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757004/chao_sa_sung_1_xk2brn.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757003/chao_sa_sung_4_iftxbp.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757003/chao_sa_sung_3_ogouek.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "🍲 Cháo Ếch Ú",
+    lat: "10.795924",
+    lng: "106.622225",
+    description:
+      "Quán ăn nằm tại 166B Gò Dầu, phường Tân Quý, quận Tân Phú, TP.HCM, mở cửa từ 07h00 đến 21h00 hằng ngày và thường đông khách vào buổi sáng. Mức giá dao động khoảng 50.000 – 60.000 đồng, tương xứng với chất lượng món ăn. Quán chuyên cháo ếch theo phong cách Singapore với hương vị đặc trưng, nêm nếm đậm đà; trong đó cháo ếch đùi là món được nhiều thực khách lựa chọn nhờ phần ếch to, thịt chắc và sốt đậm vị. Quán ghi điểm bởi nhân viên phục vụ nhiệt tình, món ăn chất lượng và có hỗ trợ giao hàng qua ShopeeFood, GrabFood, dù vào giờ cao điểm lượng khách đông có thể khiến thời gian chờ món lâu hơn.",
+    images: [
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757212/chao_ech_u_1_uz2svq.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757212/chao_ech_u_2_lt6kvi.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757212/chao-ech1_aua5yt.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757212/chao-ech_lzt7ur.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757212/chao_ech_u_4_vjhp90.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757212/chao_ech_u_as77vc.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757212/chao_ech_u_3_phht77.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "🍲 Cơm Lam Thịt Nướng A Tinh",
+    lat: "10.790690",
+    lng: "106.635159",
+    description:
+      "Quán ăn nằm tại 79/30 Phú Thọ Hòa, phường Phú Thọ Hòa, quận Tân Phú, TP.HCM, mở cửa từ 08h30 đến 21h00 hằng ngày và thường đông khách vào giờ trưa. Mức giá dao động từ 25.000 – 35.000 đồng, khá bình dân và phù hợp với nhiều đối tượng. Thực đơn gồm các món quen thuộc như cơm lam thịt nướng, bún thịt nướng, bánh hỏi thịt nướng; trong đó cơm lam thịt nướng được nhiều thực khách yêu thích nhờ phần ăn vừa miệng, hương vị đậm đà. Quán ghi điểm bởi vị trí dễ tìm, món ăn đa dạng, giá rẻ, phù hợp với học sinh – sinh viên và dân văn phòng, dù không gian không quá rộng nên vào giờ cao điểm có thể khá đông.",
+    images: [
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757324/bun_thit_nuong_com_lam_1_rcowxm.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757323/bun_thit_nuong_com_lam_4_dgl1gc.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757322/bun-thit-nuong_ustvoj.jpg",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757322/bun_thit_nuong_com_lam_3_ogju2g.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757321/bun_thit_nuong_com_lam_5_siftlr.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757322/bun_thit_nuong_com_lam_gelppl.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757322/bun_thit_nuong_com_lam_6_a7ofjl.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "🍲 Hủ Tiếu Chay Cây Đề",
+    lat: "10.798634",
+    lng: "106.632011",
+    description:
+      "Quán ăn nằm tại 01 Diệp Minh Châu, phường Tân Sơn Nhì, quận Tân Phú, TP.HCM, mở cửa từ 06h00 đến 22h00 hằng ngày. Mức giá dao động khoảng 29.000 – 50.000 đồng, phù hợp với nhiều đối tượng thực khách. Thực đơn chay khá phong phú với các món như chả giò hải vị, hủ tiếu Mỹ Tho, bún Thái, bánh canh; trong đó hủ tiếu Mỹ Tho được nhiều người lựa chọn nhờ hương vị thanh nhẹ, nêm nếm vừa miệng. Quán ghi điểm bởi món ăn chất lượng, không gian ấm cúng và có hỗ trợ giao hàng qua Grab, ShopeeFood và Gojek, dù vào giờ cao điểm thời gian phục vụ đôi lúc còn hơi chậm.",
+    images: [
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757450/hu_tieu_chay_cay_de_3_spyldy.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757449/hu_tieu_chay_cay_de_1_kvx57o.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757449/hu_tieu_chay_cay_de_y48qqx.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757449/hu_tieu_chay_ca_de_2_ksohl1.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757449/hu_tieu_chay_cay_de_5_x5aigr.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757449/hu_tieu_chay_cay_de_4_ik5l2b.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "🍲 Ốc Nhớ Sài Gòn",
+    lat: "10.774950",
+    lng: "106.643890",
+    description:
+      "Quán ăn nằm tại 118/84 Lê Trọng Tấn, phường Tây Thạnh, quận Tân Phú, TP.HCM, mở cửa từ 03h00 đến 21h00 tất cả các ngày trong tuần và thường đông khách vào khoảng 19h00. Mức giá rất bình dân, chỉ từ 5.000 – 13.000 đồng, đặc biệt phù hợp với học sinh, sinh viên. Thực đơn gồm nhiều món bánh quen thuộc như bánh thập cẩm, bánh bèo, bánh bột lọc, bánh đúc nước cốt dừa, bánh ít trần,… với hương vị giản dị, dễ ăn.",
+    images: [
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757566/oc_f0ro0j.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757565/oc_nho_sai_gon_2_vkkpj3.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757563/oc_nho_sai_gon_1_naofnd.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757563/oc_nho_sai_gon_ufn8uc.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757560/oc_nho_sai_gon_9_fijq00.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757560/oc_nho_sai_gon_8_kap8z9.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757559/oc_nho_sai_gon_6_gr6jhr.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757559/oc_nho_sai_gon_7_jemgo1.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757559/oc_nho_sai_gon_5_jr67eu.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757559/oc_nho_sai_gon_3_lautho.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757558/oc_nho_sai_gon_4_lgcnpi.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "🍲 Nhân Phát Premium",
+    lat: "10.794055",
+    lng: "106.628282",
+    description:
+      "Quán ăn nằm tại 257 Trương Vĩnh Ký, phường Tân Sơn Nhì, quận Tân Phú, TP.HCM, mở cửa từ 10h00 đến 23h00 hằng ngày và thường đông khách vào buổi tối. Mức giá dao động khá rộng, từ 20.000 – 250.000 đồng, phù hợp cho cả những bữa ăn bình dân lẫn các buổi tụ họp đông người. Thực đơn phong phú với các món từ bò tơ như bò tái chanh, lẩu thập cẩm, lẩu xí quách; trong đó bò nướng lụi sả được nhiều thực khách yêu thích nhờ hương vị thơm ngon, đậm đà. Quán ghi điểm bởi món ăn đa dạng, giá cả hợp lý và có hỗ trợ giao hàng qua Grab, ShopeeFood, dù vào giờ cao điểm lượng khách đông có thể khiến thời gian chờ món lâu hơn.",
+    images: [
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757799/nhan_phat_2_ic5v0a.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757796/nhan_phat_1_ana6oa.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757795/nhanphat2_g43qkl.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757796/nhanphat1_hz2fj5.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757795/nhanphat_dlf7cf.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757795/nhan_phat_a55q6z.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757795/nhan_phat_3_fz8tkh.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757794/nhan_phat_4_vixfmq.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "🍲 Bánh Bèo Bà Năm Nữ",
+    lat: "10.809242",
+    lng: "106.626592",
+    description:
+      "Quán ăn được đánh giá 4.3/5 trên Google, nằm tại 257 Trương Vĩnh Ký, phường Tân Sơn Nhì, quận Tân Phú, TP.HCM. Quán mở cửa từ 10h00 đến 23h00 tất cả các ngày trong tuần và thường đông khách vào khung giờ 19h00 – 20h00. Mức giá khá linh hoạt, dao động từ 20.000 – 250.000 đồng, phù hợp cho cả đi ăn bình dân lẫn tụ họp đông người. Thực đơn phong phú với các món từ bò tơ như bò tái chanh, lẩu thập cẩm, lẩu xí quách, trong đó bò nướng lụi sả (119.000 đồng/phần) là món được nhiều thực khách yêu thích. Ưu điểm của quán là món ăn đa dạng, giá cả hợp lý, có hỗ trợ giao hàng qua Grab và ShopeeFood. Tuy nhiên, vào giờ cao điểm quán thường đông nên khách có thể phải chờ hơi lâu.",
+    images: [
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757981/banh-beo_xwczyy.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757980/banh_beo_ba_nam_nu_pg0pgg.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757979/banh_beo_ba_nam_nu_4_mx9nc7.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757976/banh_beo_ba_nam_nu_2_ztf3vu.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757976/banh_beo_ba_nam_nu_1_aiv46p.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757976/banh-beo1_jmunas.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757975/banh_beo_ba_nam_nu_3_dxbpnb.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769757975/banh_beo_ba_nam_nu_5_vxcrkr.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "🍲 Cá Viên Chiên Nguyễn Xuân Khoát",
+    lat: "10.789028",
+    lng: "106.630800",
+    description:
+      "Quán ăn nằm tại 102 Nguyễn Xuân Khoát, phường Tân Thành, quận Tân Phú, TP.HCM, mở cửa từ 11h00 đến 23h30 hằng ngày và thường đông khách vào buổi tối. Mức giá dao động khá rộng, từ 10.000 – 250.000 đồng, phù hợp với nhiều đối tượng thực khách. Thực đơn phong phú với các món ăn vặt và cá viên chiên như chả cá đậu đũa, bao tử nhồi cá thát lát, cá tẩm cốm dẹp, các combo dimsum và combo cá viên đầy đủ; trong đó cá tẩm cốm dẹp được nhiều khách yêu thích nhờ giá rẻ và hương vị dễ ăn. Quán có hỗ trợ giao hàng qua ShopeeFood, ghi điểm bởi menu đa dạng và giá cả hợp lý, dù nước chấm chủ yếu là các loại tương cơ bản nên chưa thật sự phong phú.",
+    images: [
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769758202/ca_vien_chien_nguyen_xuan_khoat_3_x806cg.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769758201/ca_vien_chien_nguyen_xuan_khoat_8_r7qoqc.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769758200/ca_vien_chien_nguyen_xuan_khoat_5_u0hmkh.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769758198/ca_vien_chien_nguyen_xuan_khoat_1_yox1wc.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769758197/ca_vien_chien_nguyen_xuan_khoat_2_zkn7fd.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769758196/cavienchien1_cxbdjt.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769758194/cavienchien_q1rbcf.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769758193/ca_vien_chien_nguyen_xuan_khoat_l8ho6k.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769758192/ca_vien_chien_nguyen_xuan_khoat_4_shfpas.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769758192/ca_vien_chien_nguyen_xuan_khoat_9_nfvrjf.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769758192/ca_vien_chien_nguyen_xuan_khoat_7_uff8mw.webp",
+      "https://res.cloudinary.com/dlccsuxkb/image/upload/v1769758191/ca_vien_chien_nguyen_xuan_khoat_6_lre8v2.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+
+  // Quán ăn (13 - 23)
+  {
+    name: "🍲 Cơm Tấm Cô Phượng",
+    lat: "10.813093",
+    lng: "106.626661",
+    description:
+      "Quán cơm tấm Cô Phượng là địa chỉ quen thuộc với nhiều thực khách nhờ hạt cơm tấm thơm mềm, sườn nướng được tẩm ướp đậm đà, vừa miệng. Các món ăn kèm như dưa chua, dưa leo luôn tươi ngon, giúp cân bằng hương vị và tạo cảm giác không bị ngán. Đặc biệt, nước chấm đậm đà, pha vừa vị chính là điểm nhấn khiến nhiều người quay lại thưởng thức.",
+    images: [
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769830658/com_tam_co_phuong_1_kzucvc.png",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769830658/c%C6%A1m_tam_co_phuong_s5rtqn.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "🍲 Bánh Xèo Miền Trung - Thoại Ngọc Hầu",
+    lat: "10.784461",
+    lng: "106.639402",
+    description:
+      "Bánh xèo miền Trung được xem là món đặc sản hấp dẫn, dễ khiến thực khách “phải lòng” ngay từ lần đầu thưởng thức. Dù chỉ là một quán ven đường, Bánh Xèo Miền Trung 38 Thoại Ngọc Hầu lúc nào cũng đông khách. Quán phục vụ hai loại bánh xèo với nhân thịt heo và nhân tôm, mang đến nhiều lựa chọn cho thực khách khi ghé thưởng thức.",
+    images: [
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769818799/banh_xeo_mien_trung_sjrq40.jpg",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769818798/banh_xeo_mien_trung_1_kfg1fq.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "🍲 Quán Bún Riêu 533",
+    lat: "10.798228",
+    lng: "106.616378",
+    description:
+      "Nơi này đáng để ghé thử vì không chỉ là một quán ăn lâu năm quen thuộc với người dân Tân Phú, mà còn mang đến hương vị bún riêu truyền thống được giữ gìn suốt hơn 20 năm. Mỗi tô bún đều được chế biến từ nguyên liệu chọn lọc kỹ càng, tạo nên vị ngọt tự nhiên, thơm ngon và ổn định theo thời gian. Nếu không đến đây, bạn sẽ bỏ lỡ cơ hội thưởng thức một tô bún riêu chuẩn vị, gắn liền với ký ức và thói quen ẩm thực của nhiều thế hệ thực khách địa phương – một trải nghiệm giản dị nhưng rất đáng giá.",
+    images: [
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819234/bun_rieu_533_dlzad5.jpg",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819224/bun_rieu_533_1_hh66na.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819226/bun_rieu_533_2_oyxyho.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769818881/bun_rieu_533_3_onzahg.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819227/bun_rieu_533_4_zeh7z9.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819025/bun_rieu_533_5_yh30y2.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819083/bun_rieu_533_6_geqfew.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819228/bun_rieu_533_7_wfgsfv.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819230/bun_rieu_533_8_bhtuun.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819232/bun_rieu_533_9_pfy6ef.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "🍲 Xôi gà 56",
+    lat: "10.775332",
+    lng: "106.645883",
+    description:
+      "Quán ăn nằm tại 56 Trịnh Đình Trọng, phường Phú Trung, quận Tân Phú, TP.HCM, mở cửa gần như xuyên suốt cả ngày từ 01h00 đến 00h00, thuận tiện cho những ai cần ăn khuya hoặc ăn sớm. Mức giá dao động khoảng 25.000 – 80.000 đồng, phù hợp với nhiều đối tượng. Thực đơn đa dạng với các món như xôi gà thập cẩm, xôi đùi gà, bánh mì gà xé, bánh giò, bánh bao, phá lấu,… đáp ứng nhiều khẩu vị khác nhau. Quán ghi điểm nhờ menu phong phú, thời gian mở cửa dài và có hỗ trợ giao hàng qua ShopeeFood, Loship, tuy nhiên vào khoảng 20h00 quán thường đông khách.",
+    images: [
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819685/xoi-ga_azk73f.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819685/xoi-ga1_cfdpeo.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819686/xoi-ga2_vidrwh.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819686/xoi-ga3_ctjsai.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819689/xoi-ga4_gj8pyd.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819691/xoi-ga5_jqztav.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819693/xoi-ga6_mcevcd.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819695/xoi-ga7_bksrob.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819697/xoi-ga8_uru30s.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "🍲 Nhà hàng Hòn Đất - Tân Phú",
+    lat: "10.800386",
+    lng: "106.630070",
+    description:
+      "Nhà hàng Hòn Đất tọa lạc tại 140 Tân Sơn Nhì, phường Tân Sơn Nhì, quận Tân Phú, là địa điểm phù hợp cho việc tổ chức tiệc và gặp gỡ trong không gian sang trọng. Nhà hàng sở hữu khu rooftop tầng thượng với tầm nhìn thoáng, có thể ngắm hoàng hôn và toàn cảnh thành phố về đêm. Không gian bên trong gồm 3 sảnh tiệc rộng rãi với sức chứa lên đến 200 khách, cùng 20 phòng VIP và hầm rượu được thiết kế lịch lãm, riêng tư. Đây là lựa chọn phù hợp cho các buổi tiệc gia đình, họp mặt bạn bè, tiếp khách hoặc những cuộc họp cần không gian yên tĩnh, trong đó hầm rượu mang lại trải nghiệm độc đáo với các loại rượu được chọn lọc.",
+    images: [
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819921/hondat_haz466.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819923/hondat1_zjcotc.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819923/hon-dat_fo2ite.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769819925/hon-dat1_rakr3o.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820043/hon-dat2_mrsblj.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820044/hon-dat4_gcf6dd.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820044/hon-dat3_srtsqm.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820048/hon-dat5_fijyyw.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820050/hon-dat6_irljs1.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820053/hon-dat8_wr7ymb.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820056/hon-dat9_dlveou.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "🍲 Bún Hến Mụ Ý",
+    lat: "10.802070",
+    lng: "106.632451",
+    description:
+      "Buổi sáng ghé vào Bún hến Mụ Ý ở hẻm 147/49 Tân Kỳ Tân Quý là cảm giác rất “Huế” giữa lòng Tân Phú. Quán mở từ sớm, chỉ từ 6h đến 10h sáng, vừa đủ cho một bữa sáng nhẹ bụng mà vẫn đậm đà. Món ăn ở đây không cầu kỳ nhưng chuẩn vị: hến nhỏ, cay cay, tóp mỡ giòn rụm, chan thêm nước hến mặn ngọt là thấy ấm bụng liền. Giá thì cực kỳ dễ thương, chỉ từ 15.000 – 33.000 đồng, nên học sinh, sinh viên hay gia đình đều có thể ghé ăn thoải mái. Quán nhỏ nhưng sạch sẽ, làm đồ ăn kỹ và giữ được hương vị rất riêng. Bạn sẽ bỏ lỡ một buổi sáng chậm rãi với tô cơm hến cay nồng, giòn béo đúng kiểu Huế mà không cần đi xa. Là cảm giác vừa ăn vừa xuýt xoa, vừa thấy thân quen như đang ngồi ở một quán nhỏ trong xóm, nơi người ta bán bằng cái tâm hơn là hình thức. Đây là kiểu quán mà ăn một lần là nhớ, nhớ rồi lại muốn quay lại vào một sáng khác.",
+    images: [
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820080/bun-hen_qdiu9q.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820081/bun-hen1_ti5fqx.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820085/bun-hen2_j1ehsh.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820086/bun-hen3_xbrhdu.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820089/bun-hen4_zfexhc.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820091/bun-hen5_oednaz.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820092/bun-hen6_eaumop.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "🍲 Lối Nhỏ Mồi và Bia",
+    lat: "10.796629",
+    lng: "106.630946",
+    description:
+      "Sau một ngày làm việc mệt mỏi, rẽ vào Lối Nhỏ ở 303/7 Tân Sơn Nhì là thấy “hạ nhiệt” liền. Quán mở từ chiều đến khuya, rất hợp để tụ tập bạn bè, nhâm nhi vài ly bia mát lạnh trong không gian chill mang hơi hướng Hồng Kông thu nhỏ. Không gian rộng rãi, sức chứa lớn nên đi nhóm đông vẫn thoải mái. Thực đơn hơn 100 món được chế biến bài bản, dễ chọn, dễ ăn, phù hợp cho cả ăn nhẹ lẫn ngồi lai rai lâu. Quán còn nhận tổ chức sinh nhật, liên hoan hay tiệc nhỏ, nên chỉ cần rủ đủ người là có ngay một buổi gặp gỡ trọn vẹn. Bạn sẽ bỏ lỡ một không gian thư giãn đúng nghĩa giữa Tân Phú – nơi vừa đủ ồn ào để vui, vừa đủ chill để xả stress. Là cảm giác ngồi tán gẫu tới khuya, đồ ăn lên đều tay, bia luôn lạnh và câu chuyện thì kéo dài mãi không dứt. Với những ai thích tụ họp bạn bè sau giờ làm, đây là một điểm hẹn rất dễ “ghiền”.",
+    images: [
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820186/loi-_diupir.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820188/loi-nho_oxurkd.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820191/loi-nho2_tcor9m.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820193/loi-nho3_wthedc.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820196/loi-nho4_jpumbd.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820199/loi-nho5_ycjyk6.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820201/loi-nho6_znpxyd.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820204/loi-nho7_dvmpp7.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820206/loi-nho8_fui2zt.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820209/loi-nho9_vcsmoo.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "🍲 Bánh ép Huế Thi Thi",
+    lat: "10.805568",
+    lng: "106.619760",
+    description:
+      "Buổi chiều rảnh rỗi, ghé Bánh ép Thi Thi ở 49 Tân Thắng là đúng bài cho những ai mê đồ ăn vặt Huế. Quán mở từ 15h đến tối, vừa kịp giờ tan học, tan làm. Thực đơn tuy bình dân nhưng đậm chất cố đô với bánh ép Huế nóng hổi, bún mắm nêm, hủ tiếu… Mỗi phần bánh ép vừa ra lò là thơm phức, ăn kèm rau tươi và nước chấm đậm đà, càng ăn càng cuốn. Giá thì “hạt dẻ”, chỉ từ vài nghìn đến 50.000 đồng/món, rất hợp với học sinh, sinh viên muốn tụ tập ăn vặt cùng bạn bè. Bạn sẽ bỏ lỡ cảm giác ngồi bên dĩa bánh ép nóng, vừa ăn vừa trò chuyện rôm rả sau giờ học. Là cái vui rất nhỏ nhưng rất dễ thương: món ăn ngon, giá rẻ, không khí gần gũi và đúng chất ăn vặt tuổi trẻ. Với ai mê hương vị Huế giản dị, đây là quán dễ ăn một lần rồi lại muốn quay lại lần nữa.",
+    images: [
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820546/banh-ep_ptzvwj.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820547/banh-ep1_uukiqa.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820549/banhep2_tlzajr.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820551/banh-ep2_iusoj9.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820553/banh-ep3_kypssx.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820555/banh-ep4_skvia6.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820557/banh-ep5_anghhu.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "🍲 Cô em 97 - Món ngon Quảng Ngãi",
+    lat: "10.788193",
+    lng: "106.620295",
+    description:
+      "Cô Em 97 ở 133 Tân Quý mang đến cảm giác rất khác với hương vị Quảng Ngãi mộc mạc mà đậm đà. Quán mở từ trưa đến tối, dễ ghé ăn vặt hay ăn xế. Thực đơn đa dạng, giá lại cực kỳ “mềm”, chỉ từ vài nghìn đồng là đã có món để thử. Nổi bật nhất là bánh xèo giòn rụm, nhân tôm thịt đầy đặn; bún mắm đậm vị, thịt heo mềm; hay bún chả cá thanh ngọt với chả cá Lý Sơn đặc trưng. Món nào cũng mang nét dân dã, nấu vừa miệng, ăn là thấy quen và dễ ghiền. Bạn sẽ bỏ lỡ cơ hội thưởng thức những món đặc sản miền Trung – Quảng Ngãi ngay giữa lòng Sài Gòn, với mức giá rất dễ thương. Là cảm giác ngồi ăn bánh xèo nóng giòn, hít hà mùi nghệ, mắm, chả cá, thấy như được “đi xa” một chút mà không cần rời khỏi Tân Phú. Với ai thích khám phá ẩm thực vùng miền, đây là một điểm dừng chân rất đáng thử.",
+    images: [
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820608/co-em_go7uzr.jpg",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820609/co-em1_saolml.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820612/co-em2_khp76d.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820614/co-em3_bptgdg.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820616/co-em4_og0yys.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820618/co-em5_kcyka4.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820621/co-em6_mhxnog.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820624/co-em7_t9f9mj.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820625/co-em8_flfqkl.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820628/co-em9_hhnpq4.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "🍲 Mimoon Quán",
+    lat: "10.813101",
+    lng: "106.622380",
+    description:
+      "Nếu thèm bánh căn, bánh xèo Phan Rang mà không có dịp ra miền Trung, Mimoon Quán ở 30/22 Đỗ Nhuận là điểm dừng chân rất hợp lý. Quán mở cửa từ sáng sớm đến tối, dễ ghé ăn sáng, ăn xế hay ăn tối nhẹ. Không gian tối giản, sạch sẽ, nhân viên thân thiện nên cảm giác rất thoải mái, như đang ăn ở nhà. Bánh xèo ở đây gây ấn tượng với lớp vỏ giòn vàng, nhân tôm kết hợp giá và hành tây tươi mát, ăn kèm nước chấm là đúng vị Phan Rang. Ngoài ra còn có bánh căn, bún mắm nêm, bánh canh và đồ uống, đủ để đổi món mỗi lần ghé. Bạn sẽ bỏ lỡ cơ hội thưởng thức bánh căn, bánh xèo chuẩn vị Phan Rang ngay giữa Tân Phú, với mức giá rất dễ chịu. Là cảm giác ngồi ăn bánh nóng hổi, giòn rụm, nhâm nhi chén nước chấm đậm đà trong một không gian gần gũi, nhẹ nhàng. Với những ai yêu món miền Trung và thích quán ăn giản dị, Mimoon Quán là nơi dễ khiến người ta nhớ và muốn quay lại.",
+    images: [
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820648/mimoon_rvg7bs.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820650/mimoon1_lcbiw9.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820652/mimoon2_lk3p5p.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820655/mimoon3_fiazbi.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820657/mimoon4_ywtilt.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820660/mimoon5_kcj0ya.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820662/mimoon6_vinudi.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820664/mimoon7_sg2mwy.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820667/mimoon8_zmsorr.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820669/mimoon9_ox37zd.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "🍲 CHAING RAI",
+    lat: "10.790582",
+    lng: "106.637779",
+    description:
+      "Ngay từ lần đầu ghé Thái Chiang Rai ở 710/5 Lũy Bán Bích, cảm giác dễ nhận thấy nhất là không gian sang trọng nhưng vẫn ấm cúng với tông màu trầm, rất hợp cho những buổi gặp gỡ cần sự chỉn chu. Nhà hàng rộng rãi, bố trí tiện nghi nên đi cùng gia đình, bạn bè hay đồng nghiệp đều thoải mái. Thực đơn hơn 70 món chuẩn vị Thái, từ khai vị đến tráng miệng, món nào cũng nêm nếm hài hòa, dễ ăn nhưng vẫn giữ được nét đặc trưng của ẩm thực Thái. Điểm cộng là quán còn có các món Thái chay, giúp ai cũng dễ dàng chọn được món phù hợp. Bạn sẽ bỏ lỡ một địa chỉ thưởng thức ẩm thực Thái bài bản ngay tại Tân Phú, nơi vừa ăn ngon vừa có không gian đẹp để trò chuyện và thư giãn. Là cảm giác được ngồi trong không gian ấm áp, thưởng thức từng món Thái chuẩn vị, từ cay nhẹ đến đậm đà, mà không cần phải đi xa. Với những dịp sum họp hay gặp gỡ quan trọng, đây là lựa chọn rất đáng cân nhắc.",
+    images: [
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820715/chang-rai1_ozg7l7.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820718/chang-rai2_lojpas.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820712/chaing-rai9_dg4avx.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820710/chaing-rai8_a8y2hs.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820707/chaing-rai7_fbeill.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820704/chaing-rai6_sq3wb6.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820702/chaing-rai5_btcait.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820699/chaing-rai4_thpd61.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820697/chaing-rai_lvwj6n.webp",
+      "https://res.cloudinary.com/dypm5avrx/image/upload/v1769820695/chaign-rai3_d4nhrx.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+
+  //Coffee shops
+  {
+    name: "☕ Tiệm trà Bốn Mùa",
+    lat: "10.798938",
+    lng: "106.639962",
+    description:
+      "Tiệm Trà Bốn Mùa là kiểu quán nhỏ khiến người ta muốn ghé lại nhiều lần vì cảm giác dễ chịu rất riêng. Trà ở đây thanh, thơm tự nhiên, uống không bị gắt hay ngọt gắt cổ, đúng kiểu càng uống càng thấy “đã”. Không gian quán mộc mạc, gần gũi, ngồi vào là thấy chậm lại một nhịp giữa phố xá ồn ào. Dù ghé một mình hay đi cùng bạn bè, gọi một ly trà mát lạnh rồi ngồi tán gẫu cũng đủ thấy nhẹ người. Nếu chưa từng thử, có lẽ bạn sẽ bỏ lỡ một nơi lý tưởng để giải nhiệt, trò chuyện và tận hưởng cảm giác bình yên rất đời giữa Sài Gòn.",
+    images: [
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769763915/tiem-tra_xjirci.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769763915/tiem-tra1_ogyvj7.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769763914/tiem-tra2_ovmuay.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769763914/tiem-tra3_nbmomo.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769763914/tiem-tra4_fezl5s.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769763914/tiem-tra5_bbutff.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769763915/tiem-tra6_woxw1l.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769763913/tiem-tra7_qpeowj.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769763913/tiem-tra8_b15gmd.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "☕ Machiya Coffee",
+    lat: "10.806638",
+    lng: "106.730349",
+    description:
+      "Machiya Coffee mang đến cảm giác như lạc vào một góc Nhật Bản rất đỗi bình yên giữa Sài Gòn. Quán gây ấn tượng bởi phong cách machiya truyền thống với gỗ, ánh đèn vàng ấm và không gian tĩnh lặng, bước vào là tự nhiên muốn nói khẽ lại. Ngồi ở đây, nhâm nhi ly cà phê hay trà nóng, nhìn ánh sáng len qua khung cửa gỗ, mọi mệt mỏi dường như chậm rãi tan đi. Machiya không ồn ào, không phô trương, nhưng lại đủ tinh tế để khiến mỗi buổi ghé quán trở thành một khoảng nghỉ dễ chịu cho tâm trí. Nếu chưa từng đến, có lẽ bạn sẽ bỏ lỡ cảm giác thư thái rất “Nhật” – nơi chỉ cần ngồi yên thôi cũng thấy lòng dịu lại.",
+    images: [
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769765507/machiya_bffoyb.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769765507/machiya1_hs5pzo.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769765502/machiya2_qdn701.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769765500/machiya3_a0zkdu.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769765500/machiya4_ddx2lz.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769765499/machiya5_waewh0.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769765499/machiya6_eyvuyf.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769765501/machiya7_ohwkzq.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769765499/machiya8_ehpbsx.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769765499/machiya9_jyj9uf.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "☕ XLIII Specialty Coffee",
+    lat: "10.810025",
+    lng: "106.732232",
+    description:
+      "XLIII Specialty Coffee là kiểu quán khiến bạn phải dừng lại một nhịp giữa guồng quay Sài Gòn. Không gian mang phong cách tối giản, hiện đại với tông màu trầm, ánh sáng vừa đủ, tạo cảm giác rất “chill” và tập trung. Ở đây, cà phê không chỉ để uống cho tỉnh mà là để cảm – từ mùi hạt rang thơm nhẹ, vị chua thanh dễ chịu cho đến hậu vị kéo dài. Ngồi XLIII, dù làm việc, đọc sách hay chỉ lặng lẽ nhìn phố qua khung kính, bạn đều thấy thời gian trôi chậm hơn một chút. Nếu chưa ghé, có lẽ bạn sẽ bỏ lỡ một trong những nơi hiếm hoi ở Sài Gòn mà cà phê thật sự là nhân vật chính, còn mọi thứ khác chỉ để làm nền cho trải nghiệm đó.",
+    images: [
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769766965/XLIII_vi9eua.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769766966/XLIII1_kubie5.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769766964/XLIII2_ykurym.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769766960/XLIII3_cjapwv.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769766911/XLIII4_kzk40k.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769766911/XLIII5_ja3z8q.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769766910/XLIII6_rqhb2i.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769766911/XLIII7_feifat.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769766910/XLIII8_os9oj9.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769766911/XLIII9_pj7lfz.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769766910/XLIII10_oodi4s.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "☕ Aramour Coffee Roasters Thao Dien",
+    lat: "10.805008",
+    lng: "106.730996",
+    description:
+      "Aramour Coffee Roasters Thảo Điền là kiểu quán cà phê khiến người ta muốn chậm lại ngay từ khoảnh khắc bước vào. Không gian mang hơi hướng châu Âu hiện đại, tinh tế nhưng vẫn rất ấm áp, ngập tràn ánh sáng tự nhiên và mùi cà phê rang thơm lan nhẹ trong không khí. Điểm đặc biệt của Aramour nằm ở chất lượng hạt cà phê được tuyển chọn kỹ lưỡng và rang xay tại chỗ, mỗi ly mang hương vị rõ ràng, cân bằng và rất “đã” với những ai thật sự yêu cà phê specialty. Ngồi ở Aramour, dù là buổi sáng yên tĩnh hay chiều muộn thư thả, bạn đều dễ dàng tìm thấy cảm giác thư giãn đúng nghĩa – nhâm nhi một ly cà phê chuẩn gu, ngắm dòng người Thảo Điền trôi chậm bên ngoài. Nếu chưa ghé, có lẽ bạn sẽ bỏ lỡ một địa điểm mà cà phê không chỉ để uống, mà còn là một trải nghiệm tinh tế và đáng nhớ.",
+    images: [
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769767930/aramour_vhlwxq.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769767930/aramour1_jac0qs.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769767930/aramour2_hxwmnu.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769767930/aramour3_ftcyvu.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769767929/aramour4_xzbazn.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769767929/aramour5_jnl0s8.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769767929/aramour6_thbzyx.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769767931/aramour7_ozuik4.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769767929/aramour8_btjv9d.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769767929/aramour9_mlyark.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "☕ Vừa vừa Cafe",
+    lat: "10.809953",
+    lng: "106.732350",
+    description:
+      "Vừa Vừa Cafe đúng kiểu quán dành cho những ngày muốn sống “chậm vừa vừa” giữa Sài Gòn ồn ào. Quán không quá cầu kỳ nhưng lại ghi điểm bởi không gian ấm áp, nhẹ nhàng, decor mộc mạc pha chút tinh tế khiến bước vào là thấy dễ chịu liền. Ở đây, mọi thứ đều ở mức vừa đủ: từ ánh sáng, âm nhạc cho tới cách bày trí, tạo cảm giác rất gần gũi và thư giãn. Ngồi ở Vừa Vừa Cafe, gọi một ly nước, mở laptop làm việc hay chỉ đơn giản là ngồi tán gẫu cùng bạn bè cũng thấy hợp. Quán mang lại cảm giác thân quen như một góc nhỏ để trốn khỏi nhịp sống vội vã, nơi bạn có thể thảnh thơi thưởng thức cà phê và tận hưởng khoảnh khắc của riêng mình. Nếu chưa ghé, có lẽ bạn sẽ bỏ lỡ một chốn dừng chân dễ thương, nơi mọi thứ đều “vừa vừa” nhưng lại rất đáng nhớ.",
+    images: [
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769768422/vua-vua_px3dnf.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769768422/vua-vua1_lrvoz7.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769768418/vua-vua2_zd2jp1.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769768417/vua-vua3_lfuebn.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769768417/vua-vua4_armmfy.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769768416/vua-vua5_gajidw.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769768424/vua-vua6_ldqxfr.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769768416/vua-vua7_tr17hy.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769768416/vua-vua8_qcsjrj.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769768416/vua-vua9_bagwpr.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769768415/vua-vua10_znvjyy.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "☕ The Windsor Tea House",
+    lat: "10.810130",
+    lng: "106.731762",
+    description:
+      "The Windsor Tea House là kiểu nơi bước vào là thấy mình chậm lại liền một nhịp. Quán mang phong cách trà chiều châu Âu cổ điển, sang trọng nhưng không hề xa cách, từ không gian, ánh đèn cho đến cách bày trí đều toát lên cảm giác tinh tế và thư giãn. Đây là nơi rất hợp cho những buổi hẹn nhẹ nhàng, trò chuyện cùng bạn bè hoặc tự thưởng cho bản thân một buổi chiều yên tĩnh. Điểm khiến The Windsor Tea House đáng ghé chính là trải nghiệm trà chiều trọn vẹn: trà thơm, bánh ngọt được trình bày đẹp mắt, ngồi nhâm nhi trong không gian thanh lịch là thấy “chill” hẳn. Nếu chưa đến đây, có lẽ bạn sẽ bỏ lỡ cảm giác được sống chậm, thưởng trà đúng nghĩa giữa lòng thành phố – một trải nghiệm vừa sang, vừa dịu, rất đáng để thử ít nhất một lần.",
+    images: [
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769769005/coffee_guwpqi.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769769010/coffee1_n82y3j.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769769000/coffee2_ta8fmb.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769768999/coffee3_qmjzrx.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769768999/coffee4_qscwxc.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769768998/coffee5_oavpp9.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769768998/coffee6_kwcplo.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769768991/coffee7_gxd8y4.webp",
+      // "https://res.cloudinary.com/duqhhplgf/image/upload/v1769768991/coffee8_i3ofs8.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769768993/coffee9_myszbh.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+
+  {
+    name: "☕ TeeMay Speciality Coffee",
+    lat: "10.801353",
+    lng: "106.651989",
+    description:
+      "Nếu bạn đang tìm một quán cà phê vừa uống ngon vừa có ảnh xinh mang về thì Teemay Coffee 119 là một điểm dừng chân khá hợp lý. Quán mang phong cách châu Âu nhẹ nhàng, bước vào là thấy ngay không gian sáng sủa, decor chỉn chu với nhiều góc chụp hình đẹp mắt, đặc biệt hợp để đi cùng bạn bè hoặc tranh thủ “sống ảo” vài tấm. Cà phê ở đây thơm và đậm vị, TEEMAY SIGNATURE là món nhiều người gọi vì dễ uống, giá ổn so với chất lượng, còn các loại trà và nước ép thì lên màu rất đẹp, cầm ly là thấy muốn chụp hình liền. Thêm một điểm cộng là quán còn phục vụ cả cơm và bánh mì, tiện ghé ăn nhẹ hoặc ngồi lâu làm việc. Nếu không ghé Teemay, có lẽ bạn sẽ bỏ lỡ một không gian cà phê khá chỉnh chu giữa khu Cộng Hòa đông đúc, nơi vừa có đồ uống ổn áp, vừa có nhiều góc chụp hình xinh xắn để buổi cà phê không chỉ dừng lại ở chuyện uống cho tỉnh.",
+    images: [
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769770942/teemay_ukgk5l.jpg",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769770941/teemay_uonxga.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769770935/teemay1_bzthmy.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769770934/teemay2_ac77as.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769770935/teemay3_ae2fod.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769770933/teemay4_ntxfny.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769771193/teemay5_ewrzka.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769770933/teemay7_oeymsf.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769770933/teemay8_eg8t9g.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769770934/teemay9_fwrstv.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "☕ Trà sữa Múp",
+    lat: "10.757835",
+    lng: "106.612436",
+    description:
+      "Nếu bạn đang lang thang Tân Phú mà thèm một ly trà sữa béo béo, thơm thơm nhưng vẫn “dễ thở” cho ví tiền thì Trà Sữa MÚP thật sự rất đáng để ghé. Cái cảm giác bước vào quán, nhìn mấy ly trà sữa to oạch, sốt rưới đầy ú ụ mà giá lại siêu mềm khiến người ta vui liền. Từ sốt khoai môn tươi làm từ khoai thật, béo mịn và thơm tự nhiên, đến phô mai ngậy ngậy hay sốt cốm lạ miệng, món nào cũng mang cảm giác “uống đã miệng mà không bị ngấy”. Chưa kể khung giờ vàng trưa chiều có mấy ly 700ml chỉ 15k, đúng kiểu uống cho đã cơn thèm mà không cần đắn đo. Nếu không đi MÚP, có lẽ bạn sẽ bỏ lỡ một quán trà sữa vừa ngon, vừa hào phóng từ hương vị đến dung tích ly, nơi mà tụi bạn có thể vừa tám chuyện vừa “húp” trà sữa no nê, vui vẻ mà chẳng lo đau ví.",
+    images: [
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769771671/ts_gvk6h0.jpg",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769771670/ts1_u0vpl1.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769771667/ts2_hwu8ci.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769771612/ts3_jzntyn.jpg",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769771612/ts4_pqa8ey.jpg",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769771574/ts5_l8tlvk.jpg",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769771575/ts6_zvg48i.jpg",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769771574/ts7_ncfwhc.jpg",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769771573/ts8_qtinwr.jpg",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769771579/ts9_gpigo9.jpg",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "☕ Matcha hẻm 33",
+    lat: "10.794385",
+    lng: "106.624775",
+    description:
+      "Tiệm matcha hẻm 33 là một quán matcha nhỏ xinh chuyên bán take away, gây ấn tượng với thực đơn đa dạng các loại matcha theo phong cách đồng giá, dao động từ 35.000 đến 50.000 đồng. Dù không gian không lớn và chỉ phục vụ mang đi, quán vẫn được nhiều bạn trẻ yêu thích nhờ hương vị matcha đậm đà, dễ uống và mức giá “dễ chịu”. Điểm đặc biệt của tiệm là mở cửa khá trễ, rất phù hợp cho những ai thích cà phê – trà tối: từ thứ 2 đến thứ 6 quán mở từ 18:00 đến 22:00, còn thứ 7 và chủ nhật mở sớm hơn từ 15:00 đến 22:00, trở thành điểm dừng chân lý tưởng cho những buổi chiều tối muốn nhâm nhi một ly matcha mát lành.",
+    images: [
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769773093/matcha_aj2hap.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769773074/matcha1_ujlz7v.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769773040/matcha2_mumtyw.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769773039/matcha3_qrkmys.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769773039/matcha4_xrxasy.webp",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769773039/matcha5_rvut4q.webp",
+    ],
+    period: "Hiện đại",
+    region: "Nam",
+    province: "TP. Hồ Chí Minh",
+    locationType: "food",
+  },
+  {
+    name: "☕ Chạng Vạng Rooftop",
+    lat: "10.788060",
+    lng: "106.724930",
+    description:
+      "Chạng Vạng Rooftop là một điểm đến tuyệt vời ở Sài Gòn để tận hưởng khoảnh khắc hoàng hôn tuyệt đẹp và ngắm nhìn toàn cảnh Sài Gòn về đêm như một bức tranh lung linh. Đây cũng được xem là như một quán bar lý tưởng để nhâm nhi đồ uống ngắm cảnh và thư giãn với những bản nhạc du dương được giới trẻ check-in rầm rộ hiện nay. Hai chi nhánh ở Sài Gòn: Bình Thạnh và Quận 2(cũ).",
+    images: [
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769773372/Ch%E1%BA%A1ng_V%E1%BA%A1ng_Rooftop_udgtxq.jpg",
+      // "https://res.cloudinary.com/duqhhplgf/image/upload/v1769773465/Ch%E1%BA%A1ng_V%E1%BA%A1ng_Rooftop_1_ml4ecj.jpg",
+      "https://res.cloudinary.com/duqhhplgf/image/upload/v1769773373/Ch%E1%BA%A1ng_V%E1%BA%A1ng_Rooftop_2_pmtnpk.jpg",
+    ],
     period: "Hiện đại",
     region: "Nam",
     province: "TP. Hồ Chí Minh",
