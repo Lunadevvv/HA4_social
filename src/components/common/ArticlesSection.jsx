@@ -158,7 +158,7 @@ export default function ArticlesSection() {
     <section className="relative px-4 py-8 max-w-7xl mx-auto">
       {/* Header */}
       <div className="mb-6 sm:mb-8 text-center">
-        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-100 to-orange-100 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full mb-4 border-2 border-amber-200 shadow-lg shadow-amber-300/40 hover:scale-105 transition-transform duration-300 cursor-pointer">
+        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-100 to-orange-100 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full mb-4 border-2 border-amber-200 shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer">
           <FileText className="w-6 h-6 text-amber-700" />
           <h2 className="text-amber-900 text-md font-semibold">
             Bài viết nổi bật
@@ -188,8 +188,8 @@ export default function ArticlesSection() {
                   }}
                   className={`flex-shrink-0 lg:w-full text-left px-4 py-2.5 sm:py-3 rounded-xl transition-all duration-300 text-sm sm:text-base whitespace-nowrap ${
                     selectedCategory === category.id
-                      ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md scale-105"
-                      : "bg-amber-50/50 hover:bg-amber-100 text-gray-700 hover:scale-102"
+                      ? "bg-amber-500 text-zinc-50 shadow-md scale-105"
+                      : "bg-amber-100/60 hover:bg-amber-100 text-gray-700 hover:scale-102"
                   }`}
                 >
                   {category.name}
@@ -210,14 +210,14 @@ export default function ArticlesSection() {
                 <button
                   onClick={() => handleScroll("left")}
                   disabled={currentIndex === 0}
-                  className="p-2 sm:p-3 rounded-xl bg-gradient-to-r from-amber-400 to-orange-400 disabled:from-gray-200 disabled:to-gray-300 transition-all shadow-md"
+                  className="p-2 sm:p-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-400 disabled:from-gray-200 disabled:to-gray-300 transition-all shadow-md"
                 >
                   <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </button>
                 <button
                   onClick={() => handleScroll("right")}
                   disabled={currentIndex >= maxScroll}
-                  className="p-2 sm:p-3 rounded-xl bg-gradient-to-r from-amber-400 to-orange-400 disabled:from-gray-200 disabled:to-gray-300 transition-all shadow-md"
+                  className="p-2 sm:p-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-400 disabled:from-gray-200 disabled:to-gray-300 transition-all shadow-md"
                 >
                   <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </button>

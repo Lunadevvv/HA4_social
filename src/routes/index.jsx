@@ -61,19 +61,21 @@ import TeacherAssignmentDetail from "../pages/LMS/Teacher/TeacherAssignmentDetai
 import UploadTaiLieu from "../pages/giaoDuc/UploadTaiLieu.jsx";
 
 //Admin Components
-import AdminLayout from "../components/layouts/AdminLayout.jsx";
-import AdminTraiNghiem from "../pages/admin/AdminTraiNghiem.jsx";
-import AdminCongNgheAI from "../pages/admin/AdminCongNgheAI.jsx";
-import AdminTinTuc from "../pages/admin/AdminTinTuc.jsx";
-import AdminSuKien from "../pages/admin/AdminSuKien.jsx";
-import AdminPhanTich from "../pages/admin/AdminPhanTich.jsx";
-import AdminGocNhin from "../pages/admin/AdminGocNhin.jsx";
-import AdminForum from "../pages/admin/AdminForum.jsx";
-import AdminSanPham from "../pages/admin/AdminSanPham.jsx";
-import AdminOrder from "../pages/admin/AdminOrder.jsx";
-import AdminDonate from "../pages/admin/AdminDonate.jsx";
-import AdminThanhToan from "../pages/admin/AdminThanhToan.jsx";
-import AdminNguoiDung from "../pages/admin/AdminNguoiDung.jsx";
+import AdminLayout from '../components/layouts/AdminLayout.jsx';
+import AdminDashboard from '../pages/admin/AdminDashboard.jsx';
+import AdminNguoiDung from '../pages/admin/AdminNguoiDung.jsx';
+import AdminTinTuc from '../pages/admin/AdminTinTuc.jsx';
+import AdminSuKien from '../pages/admin/AdminSuKien.jsx';
+import AdminVanHoaLichSu from '../pages/admin/AdminVanHoaLichSu.jsx';
+import AdminPhanTich from '../pages/admin/AdminPhanTich.jsx';
+import AdminForum from '../pages/admin/AdminForum.jsx';
+import AdminGocNhin from '../pages/admin/AdminGocNhin.jsx';
+import AdminTraiNghiem from '../pages/admin/AdminTraiNghiem.jsx';
+import AdminDonate from '../pages/admin/AdminDonate.jsx';
+import AdminVIP from '../pages/admin/AdminVIP.jsx';
+import AdminProducts from '../pages/admin/AdminProducts.jsx';
+import AdminPurchaseHistory from '../pages/admin/AdminPurchaseHistory.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -300,55 +302,56 @@ const router = createBrowserRouter([
         children: [
           {
             index: true, // Trang mặc định khi vào /admin
-            element: <AdminTraiNghiem />,
+            element: <AdminDashboard />,
           },
           {
-            path: "trainghiem",
-            element: <AdminTraiNghiem />,
+            path: 'dashboard',
+            element: <AdminDashboard />,
           },
           {
-            path: "congngheai",
-            element: <AdminCongNgheAI />,
+            path: 'users',
+            element: <AdminNguoiDung />,
           },
           {
-            path: "tintuc",
+            path: 'news',
             element: <AdminTinTuc />,
           },
           {
-            path: "sukien",
+            path: 'events',
             element: <AdminSuKien />,
           },
           {
-            path: "phantich",
-            element: <AdminPhanTich />,
+            path: 'culture-history',
+            element: <AdminVanHoaLichSu />,
           },
           {
-            path: "gocnhin",
-            element: <AdminGocNhin />,
+            path: 'analysis',
+            element: <AdminPhanTich />,
+            
           },
+          { path: 'TraiNghiem', 
+            element: <AdminTraiNghiem /> },
+          { path: 'viewpoint',
+             element: <AdminGocNhin /> },
           {
             path: "forum",
             element: <AdminForum />,
           },
           {
-            path: "sanpham",
-            element: <AdminSanPham />,
+            path: 'cuahang/products',
+            element: <AdminProducts />,
           },
           {
-            path: "order",
-            element: <AdminOrder />,
-          },
-          {
-            path: "donate",
+            path: 'cuahang/payment-donate',
             element: <AdminDonate />,
           },
           {
-            path: "thanhtoan",
-            element: <AdminThanhToan />,
+            path: 'cuahang/vip-packages',
+            element: <AdminVIP />,
           },
           {
-            path: "nguoidung",
-            element: <AdminNguoiDung />,
+            path: 'cuahang/purchase-history',
+            element: <AdminPurchaseHistory />,
           },
         ],
       },

@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState, useLayoutEffect } from 'react';
-import drumBgMusic from '../../assets/Audio/drum_s.mp3';
+
 import imgFeatureArt from '../../assets/0-1.jpg';
 import imgFeatureHeritage from '../../assets/vanmieu.webp';
 import imgFeatureExperience from '../../assets/123.jpg';
 import imgMockupVertical from '../../assets/dacd0d7a-ad6e-4650-80fd-ebf4302abb9a.png';
+import imgOverviewHero from '../../assets/hinh-nen-powerpoint-lich-su-viet-nam-43.jpg';
 import { 
   Palette, 
   Archive, 
@@ -131,10 +132,7 @@ const HERO_DESCRIPTION_TEXT = "Một sáng kiến sáng tạo kết hợp nghệ
 
 const GioiThieu = () => {
   const [userEmail, setUserEmail] = useState(null);
-  // --- Background music state ---
-  const BG_MUSIC_KEY = 'bgMusicEnabled';
-  const bgAudioRef = useRef(null);
-  const [isBgMusicPlaying, setIsBgMusicPlaying] = useState(true); // default true, will be persisted
+
   const [missionSlideIndex, setMissionSlideIndex] = useState(0);
 
   // Refs for GSAP animations
@@ -161,18 +159,18 @@ const GioiThieu = () => {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       // === HERO SECTION ANIMATIONS ===
-      
+
       // Hero Badge - Blur Text Effect (fade in from blur)
       if (heroBadgeRef.current) {
         gsap.fromTo(heroBadgeRef.current,
-          { 
-            opacity: 0, 
+          {
+            opacity: 0,
             filter: 'blur(20px)',
             y: -30,
             scale: 0.8
           },
-          { 
-            opacity: 1, 
+          {
+            opacity: 1,
             filter: 'blur(0px)',
             y: 0,
             scale: 1,
@@ -188,7 +186,7 @@ const GioiThieu = () => {
         const title = heroTitleRef.current;
         const text = title.textContent;
         title.innerHTML = '';
-        
+
         // Split text into characters
         text.split('').forEach((char, i) => {
           const span = document.createElement('span');
@@ -207,7 +205,7 @@ const GioiThieu = () => {
           stagger: 0.03,
           ease: 'power2.out',
           delay: 0.5,
-          onStart: function() {
+          onStart: function () {
             gsap.set('.split-char', { y: 50 });
           }
         });
@@ -217,18 +215,18 @@ const GioiThieu = () => {
       if (heroDescRef.current) {
         const desc = heroDescRef.current;
         const words = HERO_DESCRIPTION_TEXT.split(' ');
-        desc.innerHTML = words.map(word => 
+        desc.innerHTML = words.map(word =>
           `<span class="desc-word">${word}</span>`
         ).join(' ');
-        
+
         gsap.fromTo(desc.querySelectorAll('.desc-word'),
-          { 
-            opacity: 0, 
+          {
+            opacity: 0,
             filter: 'blur(10px)',
             y: 20
           },
-          { 
-            opacity: 1, 
+          {
+            opacity: 1,
             filter: 'blur(0px)',
             y: 0,
             duration: 0.6,
@@ -242,13 +240,13 @@ const GioiThieu = () => {
       // Hero Actions - Scroll Float Effect
       if (heroActionsRef.current) {
         gsap.fromTo(heroActionsRef.current.children,
-          { 
-            opacity: 0, 
+          {
+            opacity: 0,
             y: 40,
             scale: 0.9
           },
-          { 
-            opacity: 1, 
+          {
+            opacity: 1,
             y: 0,
             scale: 1,
             duration: 0.8,
@@ -644,67 +642,7 @@ const GioiThieu = () => {
     return () => ctx.revert(); // Cleanup
   }, []);
 
-  // Handle background music play/pause
-  useEffect(() => {
-    const bgAudio = bgAudioRef.current;
-    if (!bgAudio) return;
-    if (isBgMusicPlaying) {
-      bgAudio.volume = 0.5;
-      const playPromise = bgAudio.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {});
-      }
-    } else {
-      bgAudio.pause();
-    }
-  }, [isBgMusicPlaying]);
 
-  // Initialize from localStorage and setup interaction-based autoplay retries
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem(BG_MUSIC_KEY);
-      if (saved !== null) {
-        setIsBgMusicPlaying(saved === 'true');
-      }
-    } catch {}
-
-    const attemptPlay = () => {
-      if (!isBgMusicPlaying) return;
-      const el = bgAudioRef.current;
-      if (!el) return;
-      el.volume = 0.5;
-      const p = el.play();
-      if (p && p.catch) p.catch(() => {});
-    };
-
-    const onVisibility = () => {
-      if (document.visibilityState === 'visible') attemptPlay();
-    };
-
-    document.addEventListener('click', attemptPlay);
-    document.addEventListener('keydown', attemptPlay);
-    document.addEventListener('touchstart', attemptPlay, { passive: true });
-    document.addEventListener('pointerdown', attemptPlay);
-    document.addEventListener('visibilitychange', onVisibility);
-    const t = setTimeout(attemptPlay, 0);
-
-    return () => {
-      clearTimeout(t);
-      document.removeEventListener('click', attemptPlay);
-      document.removeEventListener('keydown', attemptPlay);
-      document.removeEventListener('touchstart', attemptPlay);
-      document.removeEventListener('pointerdown', attemptPlay);
-      document.removeEventListener('visibilitychange', onVisibility);
-    };
-  }, [isBgMusicPlaying]);
-
-  const handleBgMusicToggle = () => {
-    setIsBgMusicPlaying((prev) => {
-      const next = !prev;
-      try { localStorage.setItem(BG_MUSIC_KEY, String(next)); } catch {}
-      return next;
-    });
-  };
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -745,7 +683,8 @@ const GioiThieu = () => {
   return (
     <div id="gioithieu-page" className="gioithieu-page">
       {/* Ép font Be Vietnam Pro cho block "Thành tựu nổi bật" - style inject để ghi đè Roboto toàn cục */}
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         #gt-stats-title-block,
         #gt-stats-title-block *,
         #gt-stats-title-block h2,
@@ -753,22 +692,7 @@ const GioiThieu = () => {
           font-family: ${FONT_BE_VIETNAM} !important;
         }
       `}} />
-      {/* Background music audio element and toggle button */}
-      <audio
-        ref={bgAudioRef}
-        src={drumBgMusic}
-        loop
-        autoPlay
-        style={{ display: 'none' }}
-      />
-      <button
-        className={`btn-bg-music-toggle${isBgMusicPlaying ? ' is-playing' : ''}`}
-        onClick={handleBgMusicToggle}
-        style={{ position: 'fixed', top: 16, right: 16, zIndex: 1000 }}
-        aria-label={isBgMusicPlaying ? 'Tắt nhạc nền' : 'Bật nhạc nền'}
-      >
-        {isBgMusicPlaying ? '🔊 Đang phát nhạc nền' : '🔇 Bật nhạc nền'}
-      </button>
+
 
       <main className="gioithieu-main">
         {/* Hero Section */}
@@ -834,7 +758,7 @@ const GioiThieu = () => {
                 <div className="gt-overview-mockup-wrap">
                   <div className="gt-overview-mockup">
                     <div className="gt-mockup-screen gt-mockup-desktop">
-                      <img src={imgFeatureHeritage} alt="Nền tảng di sản" />
+                      <img src={imgOverviewHero} alt="Di sản văn hóa Việt Nam" />
                     </div>
                     <div className="gt-mockup-screen gt-mockup-mobile">
                       <img src={imgMockupVertical} alt="Di sản văn hóa" />
@@ -876,7 +800,7 @@ const GioiThieu = () => {
               <span className="gt-section-eyebrow">Sứ mệnh</span>
               <h2 id="gt-mission-title">Những gì chúng tôi cam kết</h2>
               <p className="gt-section-intro">
-                Sứ mệnh của "Nghệ Thuật Ký Ức 4.0" là tạo ra những công cụ và trải nghiệm 
+                Sứ mệnh của "Nghệ Thuật Ký Ức 4.0" là tạo ra những công cụ và trải nghiệm
                 giúp mọi người kết nối sâu sắc hơn với di sản văn hóa Việt Nam.
               </p>
             </div>
@@ -918,8 +842,8 @@ const GioiThieu = () => {
               <div className="gt-summary-box">
                 <h3><Target size={24} style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '8px' }} /> Mục tiêu cốt lõi</h3>
                 <p>
-                  Chúng tôi không chỉ đơn thuần số hóa di sản, mà tạo ra những trải nghiệm 
-                  có khả năng chạm đến cảm xúc, khơi gợi niềm tự hào và truyền cảm hứng 
+                  Chúng tôi không chỉ đơn thuần số hóa di sản, mà tạo ra những trải nghiệm
+                  có khả năng chạm đến cảm xúc, khơi gợi niềm tự hào và truyền cảm hứng
                   hành động bảo vệ văn hóa cho thế hệ hiện tại và tương lai.
                 </p>
               </div>
@@ -938,13 +862,13 @@ const GioiThieu = () => {
             <div className="gt-vision-content">
               <div className="gt-vision-main">
                 <p className="gt-vision-lead">
-                  Dự án hướng đến việc trở thành <strong>cầu nối giữa quá khứ và hiện tại</strong>, 
-                  tạo nên một không gian nghệ thuật kỹ thuật số nơi di sản văn hóa truyền thống 
+                  Dự án hướng đến việc trở thành <strong>cầu nối giữa quá khứ và hiện tại</strong>,
+                  tạo nên một không gian nghệ thuật kỹ thuật số nơi di sản văn hóa truyền thống
                   được truyền tải bằng ngôn ngữ công nghệ.
                 </p>
                 <p>
-                  Đây là một bước tiến nhằm đưa văn hóa dân tộc đến gần hơn với thế hệ trẻ, 
-                  lan tỏa giá trị truyền thống đến cộng đồng toàn cầu thông qua trải nghiệm 
+                  Đây là một bước tiến nhằm đưa văn hóa dân tộc đến gần hơn với thế hệ trẻ,
+                  lan tỏa giá trị truyền thống đến cộng đồng toàn cầu thông qua trải nghiệm
                   tương tác hiện đại.
                 </p>
               </div>
@@ -962,7 +886,7 @@ const GioiThieu = () => {
               <div className="gt-vision-quote">
                 <blockquote>
                   <p>
-                    "Khi công nghệ gặp gỡ văn hóa, chúng ta không chỉ bảo tồn quá khứ, 
+                    "Khi công nghệ gặp gỡ văn hóa, chúng ta không chỉ bảo tồn quá khứ,
                     mà còn tạo ra tương lai nơi di sản được sống lại mỗi ngày."
                   </p>
                   <cite>— Đội ngũ Nghệ Thuật Ký Ức 4.0</cite>
@@ -995,11 +919,11 @@ const GioiThieu = () => {
         </section>
 
         {/* Call to Action */}
-  <section ref={ctaRef} className="gioithieu-cta" id="lien-he">
+        <section ref={ctaRef} className="gioithieu-cta" id="lien-he">
           <div className="gt-cta-content">
             <h2>Cùng chúng tôi bảo vệ di sản</h2>
             <p>
-              Tham gia hành trình kết nối quá khứ và hiện tại, 
+              Tham gia hành trình kết nối quá khứ và hiện tại,
               góp phần bảo tồn và lan tỏa văn hóa Việt Nam
             </p>
             <div className="gt-cta-actions">

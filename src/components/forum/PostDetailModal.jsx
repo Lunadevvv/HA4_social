@@ -135,10 +135,10 @@ export default function PostDetailModal({
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
           transition={{ duration: 0.2 }}
-          className="bg-white rounded-2xl shadow-2xl w-full max-w-5xl max-h-[90vh] overflow-hidden flex flex-col"
+          className="bg-zinc-50 rounded-2xl shadow-2xl w-full max-w-5xl max-h-[90vh] overflow-hidden flex flex-col"
         >
           {/* Header */}
-          <div className="bg-gradient-to-r from-orange-500 to-amber-500 p-6 text-white flex-shrink-0">
+          <div className="bg-gradient-to-r from-orange-400 to-amber-600 p-6 text-white flex-shrink-0">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <button
@@ -217,7 +217,7 @@ export default function PostDetailModal({
                   <motion.span
                     key={tag}
                     whileHover={{ scale: 1.1 }}
-                    className="px-3 py-1 bg-gradient-to-r from-amber-50 to-orange-50 text-amber-700 text-sm rounded-full flex items-center gap-1 hover:from-amber-100 hover:to-orange-100 transition-colors shadow-sm cursor-pointer"
+                    className="px-3 py-1 bg-amber-100/60 hover:bg-amber-200/50 text-amber-700 text-sm rounded-full flex items-center gap-1 hover:from-amber-100 hover:to-orange-100 transition-colors shadow-sm cursor-pointer"
                   >
                     <Hash className="w-3 h-3" />
                     {tag}
@@ -235,7 +235,7 @@ export default function PostDetailModal({
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
                   liked
                     ? "bg-blue-100 text-blue-600"
-                    : "bg-amber-50 text-amber-700 hover:bg-amber-100"
+                    : "bg-amber-100/60 text-amber-700 hover:bg-amber-100"
                 }`}
               >
                 <ThumbsUp
@@ -251,7 +251,7 @@ export default function PostDetailModal({
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
                   disliked
                     ? "bg-red-100 text-red-600"
-                    : "bg-amber-50 text-amber-700 hover:bg-amber-100"
+                    : "bg-amber-100/60 text-amber-700 hover:bg-amber-100"
                 }`}
               >
                 <ThumbsDown
@@ -264,7 +264,7 @@ export default function PostDetailModal({
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleShare}
-                className="flex items-center gap-2 px-4 py-2 bg-amber-50 text-amber-700 rounded-lg hover:bg-amber-100 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-amber-100/60 text-amber-700 rounded-lg hover:bg-amber-100 transition-colors"
               >
                 <Share2 className="w-5 h-5" />
                 <span className="font-medium">{post.shares}</span>
@@ -311,7 +311,7 @@ export default function PostDetailModal({
                     whileTap={{ scale: 0.95 }}
                     onClick={handleSubmitComment}
                     disabled={!comment.trim()}
-                    className="px-4 py-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-lg hover:from-orange-600 hover:to-amber-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-4 py-2 bg-amber-500 text-zinc-50 rounded-lg hover:bg-amber-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <Send className="w-5 h-5" />
                   </motion.button>

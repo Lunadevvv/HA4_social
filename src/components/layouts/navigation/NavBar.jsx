@@ -5,7 +5,7 @@ import React, {
   useMemo,
   useEffect,
 } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useCart } from "../../../context/CartContext";
 import { useUser } from "../../../context/UserContext";
@@ -38,6 +38,7 @@ const NavBar = () => {
       { label: "Giới thiệu", link: "/gioithieu" },
       {
         label: "Khám phá",
+        link: "/trainghiem",
         submenu: [
           { label: "Trải nghiệm", link: "/trainghiem" },
           { label: "Triển Lãm", link: "/trienlam" },
@@ -47,11 +48,13 @@ const NavBar = () => {
       },
       {
         label: "Cộng đồng",
+        link: "/forum",
         submenu: [
+          { label: "Cộng đồng", link: "/forum" },
           { label: "Tin tức và Sự kiện", link: "/events-news" },
           { label: "Văn hóa - Lịch sử", link: "/vanhoalichsu" },
           { label: "Phân tích & Góc nhìn", link: "/phantichgocnhin" },
-          { label: "Forum", link: "/forum" },
+
         ],
       },
       // {
@@ -75,7 +78,7 @@ const NavBar = () => {
       {
         label: "Cửa hàng",
         submenu: [
-          { label: "Mua tranh in", link: "/mua-tranh-in" },
+          { label: "Đồ lưu niệm", link: "/mua-tranh-in" },
           { label: "Donate / Ủng hộ", link: "/donat-ung-ho" },
           { label: "Thành viên VIP", link: "/thanh-vien-vip" },
         ],
@@ -157,48 +160,76 @@ const NavBar = () => {
                   {item.submenu ? (
                     <div className="relative">
                       {/* Dropdown Button */}
-                      <button
-                        type="button"
-                        className={`
-                          group flex items-center gap-2 
-                          px-4 py-2 rounded-lg font-semibold text-[0.938rem]
-                          transition-all duration-200 ease-out
-                          ${
-                            openSubmenu === index
+                      {item.link ? (
+                        <NavLink
+                          to={item.link}
+                          className={({ isActive }) => `
+                            group flex items-center gap-2 
+                            px-4 py-2 rounded-lg font-semibold text-[0.938rem]
+                            transition-all duration-200 ease-out
+                            ${openSubmenu === index || isActive
                               ? "bg-[#4a2d18] text-[#ffd54f] shadow-inner"
                               : "text-[#fff1c7] hover:text-[#ffd54f] hover:bg-[#4a2d18]/50"
-                          }
-                        `}
-                        aria-expanded={openSubmenu === index}
-                        aria-haspopup="true"
-                      >
-                        <span>{item.label}</span>
-                        <svg
-                          className={`w-4 h-4 transition-transform duration-300 ease-out ${
-                            openSubmenu === index ? "rotate-180" : ""
-                          }`}
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
+                            }
+                          `}
                         >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2.5}
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                      </button>
+                          <span>{item.label}</span>
+                          <svg
+                            className={`w-4 h-4 transition-transform duration-300 ease-out ${openSubmenu === index ? "rotate-180" : ""
+                              }`}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2.5}
+                              d="M19 9l-7 7-7-7"
+                            />
+                          </svg>
+                        </NavLink>
+                      ) : (
+                        <button
+                          type="button"
+                          className={`
+                            group flex items-center gap-2 
+                            px-4 py-2 rounded-lg font-semibold text-[0.938rem]
+                            transition-all duration-200 ease-out
+                            ${openSubmenu === index
+                              ? "bg-[#4a2d18] text-[#ffd54f] shadow-inner"
+                              : "text-[#fff1c7] hover:text-[#ffd54f] hover:bg-[#4a2d18]/50"
+                            }
+                          `}
+                          aria-expanded={openSubmenu === index}
+                          aria-haspopup="true"
+                        >
+                          <span>{item.label}</span>
+                          <svg
+                            className={`w-4 h-4 transition-transform duration-300 ease-out ${openSubmenu === index ? "rotate-180" : ""
+                              }`}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2.5}
+                              d="M19 9l-7 7-7-7"
+                            />
+                          </svg>
+                        </button>
+                      )}
 
                       {/* Dropdown Menu */}
                       <div
                         className={`
                           absolute top-full left-0 mt-2 min-w-[240px]
                           transition-all duration-200 ease-out origin-top
-                          ${
-                            openSubmenu === index
-                              ? "opacity-100 visible scale-100 translate-y-0"
-                              : "opacity-0 invisible scale-95 -translate-y-2 pointer-events-none"
+                          ${openSubmenu === index
+                            ? "opacity-100 visible scale-100 translate-y-0"
+                            : "opacity-0 invisible scale-95 -translate-y-2 pointer-events-none"
                           }
                         `}
                         onMouseEnter={handleSubmenuEnter}
@@ -211,15 +242,19 @@ const NavBar = () => {
                                 {subItem.separator ? (
                                   <div className="mx-2 my-2 border-t border-[#4a2d18]/50"></div>
                                 ) : (
-                                  <Link
+                                  <NavLink
                                     to={subItem.link}
-                                    className="
+                                    className={({ isActive }) => `
                                       group/item flex items-center gap-3 px-4 py-2.5 mx-2 my-0.5
-                                      text-[#e8dcc4] hover:text-[#ffd54f] text-[0.938rem] font-medium
+                                      text-[0.938rem] font-medium
                                       rounded-lg transition-all duration-200
                                       hover:bg-[#3a2515] hover:pl-5
                                       relative overflow-hidden
-                                    "
+                                      ${isActive
+                                        ? "text-[#ffd54f] bg-[#3a2515] pl-5"
+                                        : "text-[#e8dcc4] hover:text-[#ffd54f]"
+                                      }
+                                    `}
                                   >
                                     {/* Left accent bar */}
                                     <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-gradient-to-b from-[#ffd54f] to-[#ffb84d] rounded-r-full transition-all duration-300 group-hover/item:h-[65%]" />
@@ -245,7 +280,7 @@ const NavBar = () => {
 
                                     {/* Shine effect */}
                                     <span className="absolute inset-0 bg-gradient-to-r from-transparent via-[#ffd54f]/5 to-transparent translate-x-[-100%] group-hover/item:translate-x-[100%] transition-transform duration-700" />
-                                  </Link>
+                                  </NavLink>
                                 )}
                               </li>
                             ))}
@@ -254,20 +289,31 @@ const NavBar = () => {
                       </div>
                     </div>
                   ) : (
-                    <Link
+                    <NavLink
                       to={item.link}
-                      className="
+                      className={({ isActive }) => `
                         group/link relative flex items-center px-4 py-2
-                        text-[#fff1c7] hover:text-[#ffd54f] font-semibold text-[0.938rem]
+                        font-semibold text-[0.938rem]
                         rounded-lg transition-all duration-200
                         hover:bg-[#4a2d18]/50
-                      "
+                        ${isActive
+                          ? "text-[#ffd54f] bg-[#4a2d18]/50"
+                          : "text-[#fff1c7] hover:text-[#ffd54f]"
+                        }
+                      `}
                     >
-                      <span className="relative z-10">{item.label}</span>
+                      {({ isActive }) => (
+                        <>
+                          <span className="relative z-10">{item.label}</span>
 
-                      {/* Bottom accent line */}
-                      <span className="absolute bottom-1.5 left-1/2 -translate-x-1/2 h-0.5 w-0 bg-gradient-to-r from-transparent via-[#ffd54f] to-transparent rounded-full transition-all duration-300 group-hover/link:w-3/4" />
-                    </Link>
+                          {/* Bottom accent line */}
+                          <span
+                            className={`absolute bottom-1.5 left-1/2 -translate-x-1/2 h-0.5 bg-gradient-to-r from-transparent via-[#ffd54f] to-transparent rounded-full transition-all duration-300 ${isActive ? "w-3/4" : "w-0 group-hover/link:w-3/4"
+                              }`}
+                          />
+                        </>
+                      )}
+                    </NavLink>
                   )}
                 </li>
               ))}
@@ -348,10 +394,9 @@ const NavBar = () => {
                       group flex items-center gap-2 
                       px-4 py-2 rounded-lg font-semibold text-[0.938rem]
                       transition-all duration-200 ease-out
-                      ${
-                        openSubmenu === menuItems.length
-                          ? "bg-[#4a2d18] text-[#ffd54f] shadow-inner"
-                          : "text-[#fff1c7] hover:text-[#ffd54f] hover:bg-[#4a2d18]/50"
+                      ${openSubmenu === menuItems.length
+                        ? "bg-[#4a2d18] text-[#ffd54f] shadow-inner"
+                        : "text-[#fff1c7] hover:text-[#ffd54f] hover:bg-[#4a2d18]/50"
                       }
                     `}
                     aria-expanded={openSubmenu === menuItems.length}
@@ -370,9 +415,8 @@ const NavBar = () => {
                     )}
                     <span>{user?.name || "Tài khoản"}</span>
                     <svg
-                      className={`w-4 h-4 transition-transform duration-300 ease-out ${
-                        openSubmenu === menuItems.length ? "rotate-180" : ""
-                      }`}
+                      className={`w-4 h-4 transition-transform duration-300 ease-out ${openSubmenu === menuItems.length ? "rotate-180" : ""
+                        }`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -391,10 +435,9 @@ const NavBar = () => {
                     className={`
                       absolute top-full right-0 mt-2 min-w-[240px]
                       transition-all duration-200 ease-out origin-top-right
-                      ${
-                        openSubmenu === menuItems.length
-                          ? "opacity-100 visible scale-100 translate-y-0"
-                          : "opacity-0 invisible scale-95 -translate-y-2 pointer-events-none"
+                      ${openSubmenu === menuItems.length
+                        ? "opacity-100 visible scale-100 translate-y-0"
+                        : "opacity-0 invisible scale-95 -translate-y-2 pointer-events-none"
                       }
                     `}
                     onMouseEnter={handleSubmenuEnter}
@@ -593,10 +636,9 @@ const NavBar = () => {
         <div
           className={`
             md:hidden overflow-hidden transition-all duration-300 ease-in-out
-            ${
-              isMobileMenuOpen
-                ? "max-h-[calc(100vh-4rem)] opacity-100"
-                : "max-h-0 opacity-0"
+            ${isMobileMenuOpen
+              ? "max-h-[calc(100vh-4rem)] opacity-100"
+              : "max-h-0 opacity-0"
             }
           `}
         >
@@ -606,80 +648,134 @@ const NavBar = () => {
                 <li key={index}>
                   {item.submenu ? (
                     <div>
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setOpenSubmenu(openSubmenu === index ? null : index)
-                        }
-                        className="
-                          w-full flex items-center justify-between px-4 py-3
-                          text-[#fff1c7] hover:text-[#ffd54f] font-semibold text-[0.938rem]
-                          rounded-lg transition-all duration-200
-                          hover:bg-[#4a2d18]/50
-                        "
-                      >
-                        <span>{item.label}</span>
-                        <svg
-                          className={`w-5 h-5 transition-transform duration-300 ${
-                            openSubmenu === index ? "rotate-180" : ""
-                          }`}
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
+                      {item.link ? (
+                        <div className="w-full flex items-center justify-between pr-4 hover:bg-[#4a2d18]/50 rounded-lg transition-colors">
+                          <NavLink
+                            to={item.link}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className={({ isActive }) => `
+                              flex-1 py-3 px-4 text-[#fff1c7] font-semibold text-[0.938rem]
+                              ${isActive ? "text-[#ffd54f]" : "hover:text-[#ffd54f]"}
+                            `}
+                          >
+                            {item.label}
+                          </NavLink>
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              setOpenSubmenu(openSubmenu === index ? null : index);
+                            }}
+                            className="p-2 text-[#fff1c7] hover:text-[#ffd54f]"
+                          >
+                            <svg
+                              className={`w-5 h-5 transition-transform duration-300 ${openSubmenu === index ? "rotate-180" : ""
+                                }`}
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M19 9l-7 7-7-7"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setOpenSubmenu(openSubmenu === index ? null : index)
+                          }
+                          className="
+                            w-full flex items-center justify-between px-4 py-3
+                            text-[#fff1c7] hover:text-[#ffd54f] font-semibold text-[0.938rem]
+                            rounded-lg transition-all duration-200
+                            hover:bg-[#4a2d18]/50
+                          "
                         >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                      </button>
+                          <span>{item.label}</span>
+                          <svg
+                            className={`w-5 h-5 transition-transform duration-300 ${openSubmenu === index ? "rotate-180" : ""
+                              }`}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M19 9l-7 7-7-7"
+                            />
+                          </svg>
+                        </button>
+                      )}
 
                       <div
                         className={`
                           overflow-hidden transition-all duration-300 ease-in-out
-                          ${
-                            openSubmenu === index
-                              ? "max-h-96 opacity-100"
-                              : "max-h-0 opacity-0"
+                          ${openSubmenu === index
+                            ? "max-h-96 opacity-100"
+                            : "max-h-0 opacity-0"
                           }
                         `}
                       >
                         <ul className="ml-4 mt-1 space-y-1">
                           {item.submenu.map((subItem, subIndex) => (
                             <li key={subIndex}>
-                              <Link
+                              <NavLink
                                 to={subItem.link}
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                className="
+                                className={({ isActive }) => `
                                   flex items-center gap-2 px-4 py-2.5
-                                  text-[#e8dcc4] hover:text-[#ffd54f] text-[0.875rem] font-medium
+                                  text-[0.875rem] font-medium
                                   rounded-lg transition-all duration-200
                                   hover:bg-[#3a2515]
-                                "
+                                  ${isActive
+                                    ? "text-[#ffd54f] bg-[#3a2515]"
+                                    : "text-[#e8dcc4] hover:text-[#ffd54f]"
+                                  }
+                                `}
                               >
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#ffd54f]/50" />
-                                {subItem.label}
-                              </Link>
+                                {({ isActive }) => (
+                                  <>
+                                    <span
+                                      className={`w-1.5 h-1.5 rounded-full ${isActive
+                                        ? "bg-[#ffd54f]"
+                                        : "bg-[#ffd54f]/50"
+                                        }`}
+                                    />
+                                    {subItem.label}
+                                  </>
+                                )}
+                              </NavLink>
                             </li>
                           ))}
                         </ul>
                       </div>
                     </div>
                   ) : (
-                    <Link
+                    <NavLink
                       to={item.link}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="
+                      className={({ isActive }) => `
                         flex items-center px-4 py-3
-                        text-[#fff1c7] hover:text-[#ffd54f] font-semibold text-[0.938rem]
+                        font-semibold text-[0.938rem]
                         rounded-lg transition-all duration-200
                         hover:bg-[#4a2d18]/50
-                      "
+                        ${isActive
+                          ? "text-[#ffd54f] bg-[#4a2d18]/50"
+                          : "text-[#fff1c7] hover:text-[#ffd54f]"
+                        }
+                      `}
                     >
                       {item.label}
-                    </Link>
+                    </NavLink>
                   )}
                 </li>
               ))}
@@ -884,7 +980,7 @@ const NavBar = () => {
           </nav>
         </div>
       </div>
-    </header>
+    </header >
   );
 };
 

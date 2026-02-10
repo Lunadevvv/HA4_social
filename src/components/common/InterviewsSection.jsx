@@ -139,7 +139,6 @@ export default function InterviewsSection() {
               Kết nối con người – Khám phá lịch sử – Lan tỏa văn hóa Việt.
             </p>
           </div>
-          ;
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Featured Section */}
             <div className="lg:col-span-5">

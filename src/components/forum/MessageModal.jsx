@@ -27,7 +27,7 @@ export default function MessageModal({ recipient, onClose, onSend }) {
           className="bg-white rounded-2xl shadow-2xl w-full max-w-lg"
         >
           {/* Header */}
-          <div className="bg-gradient-to-r from-orange-500 to-amber-500 p-6 text-white rounded-t-2xl">
+          <div className="bg-gradient-to-r from-orange-400 to-amber-500 p-6 text-white rounded-t-2xl">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <img
@@ -80,7 +80,7 @@ export default function MessageModal({ recipient, onClose, onSend }) {
                 whileTap={{ scale: 0.95 }}
                 onClick={handleSend}
                 disabled={!message.trim()}
-                className="px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-lg hover:from-orange-600 hover:to-amber-600 transition-all shadow-lg font-medium flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-6 py-3 bg-amber-500 text-zinc-100 rounded-lg hover:from-orange-600 hover:to-amber-600 transition-all shadow-lg font-medium flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Send className="w-5 h-5" />
                 Gửi tin nhắn

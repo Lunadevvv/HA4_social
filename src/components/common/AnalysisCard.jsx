@@ -15,7 +15,7 @@ const AnalysisCard = ({ article, categories, onClick }) => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
         <div className="absolute top-3 left-3">
-          <span className="inline-block px-3 py-1.5 text-xs sm:text-sm bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full shadow-lg">
+          <span className="inline-block px-3 py-1.5 text-xs sm:text-sm bg-amber-500 text-zinc-50 rounded-full shadow-lg">
             {categories.find((c) => c.id === article.category)?.name}
           </span>
         </div>

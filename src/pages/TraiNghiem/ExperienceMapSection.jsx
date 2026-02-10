@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { mapData } from "../../data/historicalSitesData";
 
 const ExperienceMapSection = ({
@@ -14,28 +14,64 @@ const ExperienceMapSection = ({
     Hồ: "#f97316",
     "Pháp thuộc": "#facc15",
     Nguyễn: "#06b6d4",
-    "Hiện đại": "#dc2626",
+    "Hiện đại": "#e11d48",
+  };
+
+  const LOCATION_TYPE_ICONS = {
+    relic: "🏛️",
+    temple: "⛩️",
+    hall: "🏯",
+    museum: "🏛️",
+    theatre: "🎭",
+    palace: "🏯",
+    pagoda: "🛕",
+    tomb: "🪦",
+    institute: "🏫",
+    school: "🎓",
+    cafe: "☕",
+    food: "🍲",
+    hotel: "🏨",
+    heritage: "🏺",
   };
 
   const markerIconCacheRef = useRef({});
 
-  const getMarkerIcon = (period) => {
+  const getMarkerIcon = (period, locationType) => {
     const color = PERIOD_COLORS[period] || "#dc8154";
-    const cacheKey = color;
+    const type = locationType || "heritage";
+    const iconChar = LOCATION_TYPE_ICONS[type] || "📍";
+    const cacheKey = `${color}-${type}-circle`;
 
     if (!markerIconCacheRef.current[cacheKey]) {
       const html = `
         <div style="
-          width:14px;height:14px;border-radius:50%;
-          background:${color};border:2px solid #fff;
-          box-shadow:0 0 0 1px rgba(0,0,0,0.25);
-        "></div>`;
+          width:24px;height:24px;            /* ↓ giảm từ 32 xuống 24 */
+          border-radius:999px;
+          background:${color}D9;
+          filter: saturate(0.85) brightness(1.1);
+          box-shadow:0 2px 6px rgba(0,0,0,0.25);
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          color:#fff;
+          font-size:14px;                   /* ↓ giảm font một chút */
+        ">
+          <span style="
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+          ">
+            ${iconChar}
+          </span>
+        </div>
+      `;
+
       markerIconCacheRef.current[cacheKey] = window.L.divIcon({
         html,
         className: "",
-        iconSize: [14, 14],
-        iconAnchor: [7, 7],
-        popupAnchor: [0, -12],
+        iconSize: [24, 24],
+        iconAnchor: [12, 12],
+        popupAnchor: [0, -18],
       });
     }
 
@@ -146,8 +182,12 @@ const ExperienceMapSection = ({
 
     const map = window.L.map(mapContainerRef.current, {
       zoomControl: false,
-      attributionControl: true,
-    }).setView([16.0, 107.5], 6);
+      attributionControl: false,
+      zoomAnimation: true,
+      markerZoomAnimation: true,
+      fadeAnimation: true,
+      maxZoom: 19,
+    }).setView([10.78, 106.7], 12);
 
     window.L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "© OpenStreetMap contributors",
@@ -165,7 +205,7 @@ const ExperienceMapSection = ({
       const lng = typeof e.lng === "string" ? parseFloat(e.lng) : e.lng;
 
       const marker = window.L.marker([lat, lng], {
-        icon: getMarkerIcon(e.period),
+        icon: getMarkerIcon(e.period, e.locationType),
       }).addTo(markerLayerRef.current);
 
       marker.bindPopup(createPopupCardHtml(e), {
@@ -184,6 +224,7 @@ const ExperienceMapSection = ({
         const nextBtn = rootEl.querySelector(".popup-next-btn");
         const counterEl = rootEl.querySelector(".popup-image-counter");
         const detailBtn = rootEl.querySelector(".popup-detail-btn");
+        const bookingBtn = rootEl.querySelector(".popup-booking-btn");
 
         const images = Array.isArray(e.images) ? e.images : [];
 
@@ -191,6 +232,17 @@ const ExperienceMapSection = ({
           ev.stopPropagation();
           ev.preventDefault();
           openDetailModal(e);
+        });
+
+        bookingBtn?.addEventListener("click", (ev) => {
+          ev.stopPropagation();
+          ev.preventDefault();
+          const q = encodeURIComponent(`${e.name} booking`);
+          window.open(
+            `https://www.google.com/search?q=${q}`,
+            "_blank",
+            "noopener,noreferrer",
+          );
         });
 
         if (!imgEl || images.length <= 1) return;
@@ -281,16 +333,6 @@ const ExperienceMapSection = ({
       return { marker, data: e };
     });
 
-    if (mapData.length > 0) {
-      const bounds = window.L.latLngBounds(
-        mapData.map((e) => [
-          typeof e.lat === "string" ? parseFloat(e.lat) : e.lat,
-          typeof e.lng === "string" ? parseFloat(e.lng) : e.lng,
-        ]),
-      );
-      map.fitBounds(bounds, { padding: [40, 40] });
-    }
-
     injectMapCssOnce();
 
     return () => {
@@ -320,10 +362,18 @@ const ExperienceMapSection = ({
       const dataYear = data.year || 2026;
       const dataLocationType = data.locationType || "heritage";
 
-      const matchesLocationType =
-        !locationType ||
-        locationType === "all" ||
-        dataLocationType === locationType;
+      let matchesLocationType = true;
+      if (locationType && locationType !== "all") {
+        const foodTypes = new Set(["food", "cafe"]);
+        if (locationType === "food") {
+          matchesLocationType = foodTypes.has(dataLocationType);
+        } else if (locationType === "hotel") {
+          matchesLocationType = dataLocationType === "hotel";
+        } else if (locationType === "heritage") {
+          matchesLocationType =
+            !foodTypes.has(dataLocationType) && dataLocationType !== "hotel";
+        }
+      }
 
       const ok =
         pSet.has(data.period) &&
@@ -457,8 +507,8 @@ const ExperienceMapSection = ({
         }).addTo(map);
       }
       if (!locatingRef.current.accuracy) {
-        locatingRef.current.accuracy = window.L.circle([lat, lng], {
-          radius: acc || 30,
+        locatingRef.current.accuracy = window.L.circleMarker([lat, lng], {
+          radius: 30,
           color: "#1d4ed8",
           fillColor: "#3b82f6",
           fillOpacity: 0.12,
@@ -471,7 +521,6 @@ const ExperienceMapSection = ({
       ensureLayers(lat, lng, acc);
       locatingRef.current.marker.setLatLng([lat, lng]);
       locatingRef.current.accuracy.setLatLng([lat, lng]);
-      locatingRef.current.accuracy.setRadius(acc);
       if (fly) {
         map.flyTo([lat, lng], Math.max(map.getZoom(), 15), { duration: 0.8 });
       }
@@ -590,6 +639,7 @@ const ExperienceMapSection = ({
               { id: "all", label: "Tất cả" },
               { id: "heritage", label: "Di tích - Văn hóa" },
               { id: "food", label: "Ẩm thực" },
+              { id: "hotel", label: "Khách sạn" },
             ].map((cat) => {
               const active = mapFilters.locationType === cat.id;
               return (
@@ -752,8 +802,14 @@ const ExperienceMapSection = ({
                   >
                     <div className="font-semibold text-[#2e1e10]">{s.name}</div>
                     <div className="text-sm text-gray-500">
-                      {s.province} · {s.region} Bộ · {s.period}
+                      {s.province} · {s.region} Bộ · {s.period}· {s.address}
                     </div>
+
+                    {s.address && (
+                      <div className="text-xs text-gray-400 mt-1 italic truncate">
+                        Địa chỉ: {s.address}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -866,12 +922,62 @@ const ExperienceMapSection = ({
             </button>
           </div>
 
-          <div className="absolute right-3 bottom-3 z-[998]">
+          <div className="absolute right-3 bottom-8 z-[900]">
+            {" "}
+            {/* bottom-8 để đẩy lên cao xíu cho thoáng */}
             <button
               onClick={toggleLocate}
-              title="Định vị vị trí của bạn"
-              className="flex items-center justify-center rounded-full bg-white/95 p-3 text-[#1d4ed8] shadow-lg hover:bg-blue-50"
-            ></button>
+              title="Hiển thị vị trí của bạn"
+              className="flex h-10 w-10 items-center justify-center rounded bg-white shadow-md transition-all hover:bg-[#f1f1f1] hover:shadow-lg active:bg-[#e5e5e5] border border-gray-200"
+            >
+              {/* Icon Tâm ngắm (Target) */}
+              <svg
+                className="h-6 w-6 text-[#666] transition-colors hover:text-black"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {/* Vòng tròn bên ngoài */}
+                <path
+                  d="M12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19Z"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                {/* 4 cái vạch ngắm 4 hướng */}
+                <path
+                  d="M12 19V21"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M12 3V5"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M19 12H21"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M3 12H5"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                {/* Chấm tròn ở giữa */}
+                <circle cx="12" cy="12" r="2" fill="currentColor" />
+              </svg>
+            </button>
           </div>
 
           <div
@@ -1002,28 +1108,54 @@ const ExperienceMapSection = ({
                     {detailPlace.period} · {detailPlace.region} Bộ ·{" "}
                     {detailPlace.province}
                   </p>
+                  {detailPlace.address && (
+                    <p className="text-xs text-gray-400 italic truncate">
+                      Địa chỉ: {detailPlace.address}
+                    </p>
+                  )}
                   <p className="text-sm leading-relaxed text-gray-700">
-                    {detailPlace.description}
+                    {detailPlace.detail || detailPlace.description}
                   </p>
                 </div>
-                <a
-                  href={`https://www.google.com/maps/dir/?api=1&destination=${detailPlace.lat},${detailPlace.lng}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center justify-center gap-2 rounded-lg bg-[#2e1e10] px-4 py-2 text-sm font-semibold text-white hover:bg-[#3b2614]"
-                >
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#fff"
-                    strokeWidth="2"
+
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <a
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${detailPlace.lat},${detailPlace.lng}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#2e1e10] px-4 py-2 text-sm font-semibold text-white hover:bg-[#3b2614] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all shadow-sm hover:shadow-lg"
                   >
-                    <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                  </svg>
-                  Mở trên Google Maps
-                </a>
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#fff"
+                      strokeWidth="2"
+                    >
+                      <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                    </svg>
+                    Mở trên Google Maps
+                  </a>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const q = encodeURIComponent(
+                        `${detailPlace.name} booking`,
+                      );
+                      window.open(
+                        `https://www.google.com/search?q=${q}`,
+                        "_blank",
+                        "noopener,noreferrer",
+                      );
+                    }}
+                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#dc8154] px-4 py-2 text-sm font-semibold text-[#dc8154] bg-white hover:bg-[#fff3e8] hover:border-[#c86a33] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all shadow-sm hover:shadow-md"
+                  >
+                    <span>🏨</span>
+                    <span>Booking</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -1045,7 +1177,6 @@ const createPopupCardHtml = (event) => `
       <div style="position:absolute;bottom:8px;left:12px;padding:6px 10px;border-radius:999px;background:rgba(0,0,0,.55);color:#fff;font-size:12px;">
         ${event.period} · ${event.region} Bộ · ${event.province ?? ""}
       </div>
-
       ${
         Array.isArray(event.images) && event.images.length > 1
           ? `
@@ -1089,6 +1220,13 @@ const createPopupCardHtml = (event) => `
           </button>
         </div>
       </div>
+      ${
+        event.address
+          ? `<p style="margin:4px 0 6px;font-size:12px;color:#757575;font-style:italic;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+              Địa chỉ: ${event.address}
+            </p>`
+          : ""
+      }
       <p style="
         margin:8px 0 12px;
         color:#4b5563;
@@ -1101,22 +1239,49 @@ const createPopupCardHtml = (event) => `
       ">
         ${event.description}
       </p>
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:4px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 12px;">
+
         <a
           href="https://www.google.com/maps/dir/?api=1&destination=${event.lat},${event.lng}"
           target="_blank" rel="noopener noreferrer"
-          style="flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 12px;border-radius:10px;background:#2e1e10;color:#fff;font-weight:600;text-decoration:none;font-size:14px;"
+          class="popup-primary-btn"
+          style="
+            display:flex; align-items:center; justify-content:center; gap:6px;
+            height: 38px; /* Cố định chiều cao */
+            border-radius:8px; background:#2e1e10; color:#fff;
+            font-weight:600; text-decoration:none; font-size:13px;
+          "
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
           Chỉ đường
         </a>
+
         <button
           type="button"
-          class="popup-detail-btn"
-          style="padding:10px 12px;border-radius:10px;border:1px solid #2e1e10;background:#fff;color:#2e1e10;font-weight:600;cursor:pointer;font-size:14px;white-space:nowrap;"
+          class="popup-booking-btn"
+          style="
+            display:flex; align-items:center; justify-content:center; gap:6px;
+            height: 38px; /* Cố định chiều cao */
+            border-radius:8px; border:1px solid #dc8154; background:#fff7ed; color:#c2410c;
+            font-weight:600; cursor:pointer; font-size:13px; white-space:nowrap;
+          "
         >
-          Xem chi tiết
+          <span>📅</span> Booking
         </button>
+
+        <button
+          type="button"
+          class="popup-detail-btn popup-secondary-btn"
+          style="
+            display:flex; align-items:center; justify-content:center;
+            height: 38px; /* Cố định chiều cao */
+            border-radius:8px; border:1px solid #e5e7eb; background:#fff; color:#374151;
+            font-weight:600; cursor:pointer; font-size:13px; white-space:nowrap;
+          "
+        >
+          Chi tiết
+        </button>
+
       </div>
     </div>
   </div>
@@ -1137,6 +1302,24 @@ const injectMapCssOnce = () => {
       opacity:0; pointer-events:none; transition:opacity .2s; border-radius:16px; z-index: 998;
     }
     .sidebar-mask.open{ opacity:1; pointer-events:auto; }
+
+    .gm-like-popup .popup-primary-btn,
+    .gm-like-popup .popup-secondary-btn,
+    .gm-like-popup .popup-booking-btn{
+      transition: transform .16s ease, box-shadow .16s ease, background-color .16s ease, border-color .16s ease;
+    }
+    .gm-like-popup .popup-primary-btn:hover,
+    .gm-like-popup .popup-secondary-btn:hover,
+    .gm-like-popup .popup-booking-btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.18);
+    }
+    .gm-like-popup .popup-primary-btn:active,
+    .gm-like-popup .popup-secondary-btn:active,
+    .gm-like-popup .popup-booking-btn:active{
+      transform: translateY(0);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+    }
   `;
   document.head.appendChild(style);
 };

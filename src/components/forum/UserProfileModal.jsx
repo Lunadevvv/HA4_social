@@ -36,7 +36,7 @@ export default function UserProfileModal({
         >
           {/* Header with Cover */}
           <div className="relative">
-            <div className="h-32 bg-gradient-to-r from-orange-400 via-amber-400 to-orange-500" />
+            <div className="h-32 bg-gradient-to-r from-orange-300 via-amber-500 to-orange-400" />
             <button
               onClick={onClose}
               className="absolute top-4 right-4 p-2 bg-white/40 hover:bg-white/30 rounded-full transition-colors text-white"
@@ -128,12 +128,11 @@ export default function UserProfileModal({
                     key={index}
                     whileHover={{
                       scale: 1.05,
-                      filter: "brightness(1.05)",
                       boxShadow: "0px 4px 10px rgba(251, 146, 60, 0.2)",
                     }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                    className="px-4 py-2 bg-gradient-to-r from-orange-100 to-amber-100 text-orange-700 rounded-full text-sm font-medium flex items-center gap-2 cursor-pointer select-none"
+                    className="px-4 py-2 bg-gradient-to-r from-orange-200/70 to-amber-200/80 text-orange-700 rounded-full text-sm font-medium flex items-center gap-2 cursor-pointer select-none"
                   >
                     <Award className="w-4 h-4" />
                     {achievement}
@@ -177,7 +176,7 @@ export default function UserProfileModal({
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={onSendMessage}
-                className="px-8 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-lg hover:from-orange-600 hover:to-amber-600 transition-all shadow-lg font-medium flex items-center gap-2"
+                className="px-8 py-3 bg-amber-500 text-zinc-100 rounded-lg hover:from-orange-600 hover:to-amber-600 transition-all shadow-lg font-medium flex items-center gap-2"
               >
                 <MessageCircle className="w-5 h-5" />
                 Gửi tin nhắn

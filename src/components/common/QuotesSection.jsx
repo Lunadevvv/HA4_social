@@ -33,9 +33,9 @@ export default function QuotesSection() {
       <div className="max-w-6xl mx-auto px-8 relative">
         {/* Section Header */}
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 px-5 py-2.5 rounded-full shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer shadow-orange-400/50 border-2 border-amber-50/40">
-            <Palette className="w-6 h-6 text-white" />
-            <h2 className="text-white text-md font-semibold">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-amber-600 px-5 py-2.5 rounded-full shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer border-2 border-amber-50/40">
+            <Palette className="w-6 h-6 text-zinc-100" />
+            <h2 className="text-zinc-100 text-md font-semibold">
               Nghệ Thuật Ký Ức 4.0
             </h2>
           </div>

@@ -58,7 +58,7 @@ export default function PostCard({ post, author, onPostClick, onAvatarClick }) {
           "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
       }}
       transition={{ duration: 0.15, ease: "easeOut" }}
-      className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer border border-amber-100"
+      className="bg-zinc-50 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer border border-amber-100"
     >
       <div className="p-6">
         {/* Author Info */}
@@ -138,7 +138,7 @@ export default function PostCard({ post, author, onPostClick, onAvatarClick }) {
                 <motion.span
                   key={tag}
                   whileHover={{ scale: 1.1 }}
-                  className="px-3 py-1 bg-gradient-to-r from-amber-50 to-orange-50 text-amber-700 text-sm rounded-full flex items-center gap-1 hover:from-amber-100 hover:to-orange-100 transition-colors shadow-sm"
+                  className="px-3 py-1 bg-amber-100/60 hover:bg-amber-200/50 text-amber-700 text-sm rounded-full flex items-center gap-1 transition-colors shadow-sm"
                 >
                   <Hash className="w-3 h-3" />
                   {tag}

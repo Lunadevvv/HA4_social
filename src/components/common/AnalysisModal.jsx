@@ -24,7 +24,7 @@ const AnalysisModal = ({ article, categories, onClose }) => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
             <div className="absolute top-4 left-4 sm:top-6 sm:left-6">
-              <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full shadow-lg text-xs sm:text-sm">
+              <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-amber-500 text-zinc-50 rounded-full shadow-lg text-xs sm:text-sm">
                 {categories.find((c) => c.id === article.category)?.name}
               </span>
             </div>

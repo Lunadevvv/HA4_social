@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import drumBgMusic from '../../assets/Audio/drum_s.mp3';
+
 import { Link } from 'react-router-dom';
 import { Palette, Paintbrush, BookOpen, Check } from 'lucide-react';
 import './Home.css';
@@ -67,8 +67,8 @@ const COLLAB_SECTIONS = [
       'Dự án “Âm vang di sản” với trải nghiệm âm thanh tương tác theo vùng địa lý',
       'Hợp tác cùng bảo tàng địa phương để số hóa hiện vật đặc sắc',
     ],
-  ctaLabel: 'Xem dự án chi tiết',
-  ctaHref: '#featured-projects',
+    ctaLabel: 'Xem dự án chi tiết',
+    ctaHref: '#featured-projects',
     image: designerImg,
   },
   {
@@ -82,11 +82,11 @@ const COLLAB_SECTIONS = [
       'Cuộc thi sáng tác poster số với sự cố vấn của nghệ sĩ trẻ',
       'Thư viện dữ liệu mở hóa dành cho nhà nghiên cứu độc lập',
     ],
-  ctaLabel: 'Tham gia cộng đồng',
-  ctaHref: '#community-programs',
+    ctaLabel: 'Tham gia cộng đồng',
+    ctaHref: '#community-programs',
     image: creativeHubImg,
   },
-    {
+  {
     id: 'collaboration-contact',
     eyebrow: 'Liên hệ hợp tác',
     title: 'Kết nối để cùng lan tỏa giá trị di sản',
@@ -97,8 +97,8 @@ const COLLAB_SECTIONS = [
       'Tư vấn triển khai không gian trải nghiệm AI – XR cho bảo tàng',
       'Xây dựng chương trình giáo dục lịch sử tương tác theo yêu cầu',
     ],
-  ctaLabel: 'Đặt lịch trao đổi',
-  ctaHref: '#lienhe',
+    ctaLabel: 'Đặt lịch trao đổi',
+    ctaHref: '#lienhe',
     image: ceoImg,
   },
 ];
@@ -117,78 +117,10 @@ const Home = () => {
   const totalSlides = FEATURED_ITEMS.length;
   const activeItem = FEATURED_ITEMS[currentSlide] ?? null;
 
-  // --- Background music state ---
-  const BG_MUSIC_KEY = 'bgMusicEnabled';
-  const bgAudioRef = useRef(null);
-  const [isBgMusicPlaying, setIsBgMusicPlaying] = useState(true); // default true, persisted below
 
-  // Handle background music play/pause
-  useEffect(() => {
-    const bgAudio = bgAudioRef.current;
-    if (!bgAudio) return;
-    if (isBgMusicPlaying) {
-      bgAudio.volume = 0.5;
-      const playPromise = bgAudio.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {});
-      }
-    } else {
-      bgAudio.pause();
-    }
-  }, [isBgMusicPlaying]);
 
-  // Initialize from localStorage and setup interaction-based autoplay retries
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem(BG_MUSIC_KEY);
-      if (saved !== null) {
-        setIsBgMusicPlaying(saved === 'true');
-      }
-    } catch {}
 
-    const attemptPlay = () => {
-      if (!isBgMusicPlaying) return;
-      const el = bgAudioRef.current;
-      if (!el) return;
-      el.volume = 0.5;
-      const p = el.play();
-      if (p && typeof p.catch === 'function') {
-        p.catch(() => {});
-      }
-    };
 
-    const onVisibility = () => {
-      if (document.visibilityState === 'visible') attemptPlay();
-    };
-
-    // Retry on common user interactions to satisfy autoplay policies
-    document.addEventListener('click', attemptPlay);
-    document.addEventListener('keydown', attemptPlay);
-    document.addEventListener('touchstart', attemptPlay, { passive: true });
-    document.addEventListener('pointerdown', attemptPlay);
-    document.addEventListener('visibilitychange', onVisibility);
-
-    // Initial deferred attempt
-    const t = setTimeout(attemptPlay, 0);
-
-    return () => {
-      clearTimeout(t);
-      document.removeEventListener('click', attemptPlay);
-      document.removeEventListener('keydown', attemptPlay);
-      document.removeEventListener('touchstart', attemptPlay);
-      document.removeEventListener('pointerdown', attemptPlay);
-      document.removeEventListener('visibilitychange', onVisibility);
-    };
-  }, [isBgMusicPlaying]);
-
-  const handleBgMusicToggle = () => {
-    setIsBgMusicPlaying((prev) => {
-      const next = !prev;
-      try { localStorage.setItem(BG_MUSIC_KEY, String(next)); } catch {}
-      return next;
-    });
-  };
-  
   const startAutoSlide = useCallback(() => {
     if (autoSlideRef.current || totalSlides <= 1) {
       return;
@@ -398,22 +330,7 @@ const Home = () => {
 
   return (
     <div className="home-page">
-      {/* Background music audio element and toggle button */}
-      <audio
-        ref={bgAudioRef}
-        src={drumBgMusic}
-        loop
-        autoPlay
-        style={{ display: 'none' }}
-      />
-      <button
-        className={`btn-bg-music-toggle${isBgMusicPlaying ? ' is-playing' : ''}`}
-        onClick={handleBgMusicToggle}
-        style={{ position: 'fixed', top: 16, right: 16, zIndex: 1000 }}
-        aria-label={isBgMusicPlaying ? 'Tắt nhạc nền' : 'Bật nhạc nền'}
-      >
-        {isBgMusicPlaying ? '🔊 Đang phát nhạc nền' : '🔇 Bật nhạc nền'}
-      </button>
+
 
       <main className="hero">
         <img

@@ -39,8 +39,8 @@ export default function Filters({
                 onClick={() => onCategoryChange(category.value)}
                 className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
                   selectedCategory === category.value
-                    ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md"
-                    : "bg-amber-50 text-amber-800 hover:bg-amber-100"
+                    ? "bg-amber-500 text-zinc-50 shadow-md"
+                    : "bg-amber-100/60 text-amber-800 hover:bg-amber-200/50"
                 }`}
               >
                 {category.label}
@@ -59,8 +59,8 @@ export default function Filters({
               onClick={() => onSortChange("newest")}
               className={`flex-1 px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-2 ${
                 sortBy === "newest"
-                  ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md"
-                  : "bg-amber-50 text-amber-800 hover:bg-amber-100"
+                  ? "bg-amber-500 text-zinc-50 shadow-md"
+                  : "bg-amber-100/60 text-amber-800 hover:bg-amber-200/50"
               }`}
             >
               <Clock className="w-4 h-4" />
@@ -70,8 +70,8 @@ export default function Filters({
               onClick={() => onSortChange("popular")}
               className={`flex-1 px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-2 ${
                 sortBy === "popular"
-                  ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md"
-                  : "bg-amber-50 text-amber-800 hover:bg-amber-100"
+                  ? "bg-amber-500 text-zinc-50 shadow-md"
+                  : "bg-amber-100/60 text-amber-800 hover:bg-amber-200/50"
               }`}
             >
               <TrendingUp className="w-4 h-4" />

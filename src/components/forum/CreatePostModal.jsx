@@ -91,7 +91,7 @@ export default function CreatePostModal({ onClose, onSubmit }) {
           className="bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-hidden"
         >
           {/* Header */}
-          <div className="bg-gradient-to-r from-orange-500 to-amber-500 p-6 text-white">
+          <div className="bg-gradient-to-r from-orange-400 to-amber-600 p-6 text-white">
             <div className="flex items-center justify-between">
               <h2 className="text-2xl font-bold">Tạo bài viết mới</h2>
               <button
@@ -115,7 +115,7 @@ export default function CreatePostModal({ onClose, onSubmit }) {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Nhập tiêu đề bài viết..."
-                className="w-full px-4 py-3 border-2 border-amber-200 rounded-lg focus:border-orange-400 focus:outline-none transition-colors"
+                className="w-full px-4 py-3 border-2 border-amber-300 rounded-lg focus:border-orange-400 focus:outline-none transition-colors"
               />
             </div>
 
@@ -127,7 +127,7 @@ export default function CreatePostModal({ onClose, onSubmit }) {
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full px-4 py-3 border-2 border-amber-200 rounded-lg focus:border-orange-400 focus:outline-none transition-colors"
+                className="w-full px-4 py-3 border-2 border-amber-300 rounded-lg focus:border-orange-400 focus:outline-none transition-colors"
               >
                 {categories.map((cat) => (
                   <option key={cat.value} value={cat.value}>
@@ -148,7 +148,7 @@ export default function CreatePostModal({ onClose, onSubmit }) {
                 onPaste={handleImagePaste}
                 placeholder="Chia sẻ suy nghĩ của bạn... (Bạn có thể dán ảnh trực tiếp vào đây)"
                 rows={6}
-                className="w-full px-4 py-3 border-2 border-amber-200 rounded-lg focus:border-orange-400 focus:outline-none transition-colors resize-none"
+                className="w-full px-4 py-3 border-2 border-amber-300 rounded-lg focus:border-orange-400 focus:outline-none transition-colors resize-none"
               />
             </div>
 
@@ -206,14 +206,14 @@ export default function CreatePostModal({ onClose, onSubmit }) {
                   onKeyPress={(e) => e.key === "Enter" && addTag()}
                   placeholder="Nhập tag và nhấn Enter hoặc nút Thêm..."
                   disabled={tags.length >= 5}
-                  className="flex-1 px-4 py-2 border-2 border-amber-200 rounded-lg focus:border-orange-400 focus:outline-none transition-colors disabled:bg-gray-100"
+                  className="flex-1 px-4 py-2 border-2 border-amber-300 rounded-lg focus:border-orange-400 focus:outline-none transition-colors disabled:bg-gray-100"
                 />
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={addTag}
                   disabled={tags.length >= 5 || !currentTag}
-                  className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+                  className="px-4 py-2 bg-orange-400 text-white rounded-lg hover:bg-orange-500 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
                 >
                   Thêm
                 </motion.button>
@@ -256,7 +256,7 @@ export default function CreatePostModal({ onClose, onSubmit }) {
               whileTap={{ scale: 0.95 }}
               onClick={handleSubmit}
               disabled={!title.trim() || !content.trim()}
-              className="px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-lg hover:from-orange-600 hover:to-amber-600 transition-all shadow-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-6 py-3 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-all shadow-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Đăng bài
             </motion.button>

@@ -959,7 +959,7 @@ export default function Forum() {
             onClick={() => setIsCreateModalOpen(true)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="relative bg-gradient-to-r from-orange-500 via-orange-600 to-amber-500 hover:from-orange-600 hover:via-orange-700 hover:to-amber-600 text-white px-7 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-3 font-semibold text-lg group overflow-hidden"
+            className="relative bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-700 hover:to-amber-600 text-zinc-100 px-7 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-3 font-semibold text-lg group overflow-hidden"
           >
             <motion.div
               animate={{

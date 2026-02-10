@@ -50,7 +50,7 @@ export default function ExpertCarousel({
 
       <button
         onClick={featured ? onViewInterview : onViewVideo}
-        className="relative overflow-hidden bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white text-xs md:text-sm font-semibold py-2 md:py-2.5 px-3 md:px-4 rounded-lg transition-all duration-300 shadow-sm hover:shadow-orange-200 hover:shadow-lg mt-3 md:mt-4 w-full flex items-center justify-center gap-2 group/btn"
+        className="relative overflow-hidden bg-amber-500 hover:bg-amber-600/90 text-zinc-100 text-xs md:text-sm font-semibold py-2 md:py-2.5 px-3 md:px-4 rounded-lg transition-all duration-300 shadow-sm hover:shadow-orange-200 hover:shadow-lg mt-3 md:mt-4 w-full flex items-center justify-center gap-2 group/btn"
       >
         <div className="absolute inset-0 w-1/2 h-full bg-white/20 skew-x-[-25deg] -translate-x-full group-hover/btn:animate-[shimmer_0.75s_infinite]" />
         {featured ? (

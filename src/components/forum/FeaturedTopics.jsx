@@ -35,8 +35,8 @@ export default function FeaturedTopics({ tags, selectedTag, onTagClick }) {
             onClick={() => onTagClick(tag)}
             className={`group relative px-4 py-2 rounded-full font-medium transition-all duration-200 ${
               selectedTag === tag
-                ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md"
-                : "bg-gradient-to-r from-amber-50 to-orange-50 text-amber-800 hover:from-amber-100 hover:to-orange-100 hover:shadow-md"
+                ? "bg-amber-500 text-zinc-100 shadow-md"
+                : "bg-amber-100/60 text-amber-800 hover:bg-amber-200/50 hover:shadow-md"
             }`}
           >
             <span className="flex items-center gap-2">
@@ -46,7 +46,7 @@ export default function FeaturedTopics({ tags, selectedTag, onTagClick }) {
                 className={`text-xs px-2 py-0.5 rounded-full ${
                   selectedTag === tag
                     ? "bg-white/30"
-                    : "bg-amber-200 text-amber-800"
+                    : "bg-amber-300/70 text-amber-800"
                 }`}
               >
                 {count}
