@@ -40,38 +40,65 @@ const ExperienceMapSection = ({
     const color = PERIOD_COLORS[period] || "#dc8154";
     const type = locationType || "heritage";
     const iconChar = LOCATION_TYPE_ICONS[type] || "📍";
-    const cacheKey = `${color}-${type}-circle`;
+
+    // Danh sách các loại chỉ hiện Icon (không nền)
+    const isServiceType = ["food", "cafe", "hotel"].includes(type);
+
+    // Thêm kích thước vào cache key để tránh lỗi khi đổi size
+    const cacheKey = `${color}-${type}-${isServiceType ? "nobg-30" : "bg-28"}`;
 
     if (!markerIconCacheRef.current[cacheKey]) {
-      const html = `
-        <div style="
-          width:24px;height:24px;            /* ↓ giảm từ 32 xuống 24 */
-          border-radius:999px;
-          background:${color}D9;
-          filter: saturate(0.85) brightness(1.1);
-          box-shadow:0 2px 6px rgba(0,0,0,0.25);
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          color:#fff;
-          font-size:14px;                   /* ↓ giảm font một chút */
-        ">
-          <span style="
-            display:inline-flex;
-            align-items:center;
-            justify-content:center;
+      let html = "";
+      let iconSize = [24, 24];
+      let iconAnchor = [12, 12];
+
+      if (isServiceType) {
+        // --- TRƯỜNG HỢP 1: ẨM THỰC & KHÁCH SẠN (Giữ nguyên như vừa làm) ---
+        iconSize = [30, 30];
+        iconAnchor = [15, 15];
+        html = `
+          <div style="
+            width: 30px; height: 30px;
+            display: flex; align-items: center; justify-content: center;
+            background: transparent;
+            font-size: 26px;
+            filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
+            line-height: 1;
           ">
             ${iconChar}
-          </span>
-        </div>
-      `;
+          </div>
+        `;
+      } else {
+        // --- TRƯỜNG HỢP 2: DI TÍCH LỊCH SỬ ---
+        iconSize = [28, 28];
+        iconAnchor = [14, 14];
+        html = `
+          <div style="
+            width: 28px; height: 28px;
+            border-radius: 999px;
+            background: ${color}B3;
+            /* filter: saturate(0.85) brightness(1.1); */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: flex; align-items: center; justify-content: center;
+            color: #fff;
+            font-size: 18px;
+          ">
+            <span style="
+              display:flex; align-items:center; justify-content:center;
+              filter: drop-shadow(0 1px 1px rgba(0,0,0,0.25));
+            ">
+              ${iconChar}
+            </span>
+          </div>
+        `;
+      }
 
       markerIconCacheRef.current[cacheKey] = window.L.divIcon({
         html,
         className: "",
-        iconSize: [24, 24],
-        iconAnchor: [12, 12],
-        popupAnchor: [0, -18],
+        iconSize: iconSize,
+        iconAnchor: iconAnchor,
+        popupAnchor: [0, -iconAnchor[1] - 4],
       });
     }
 
@@ -237,12 +264,12 @@ const ExperienceMapSection = ({
         bookingBtn?.addEventListener("click", (ev) => {
           ev.stopPropagation();
           ev.preventDefault();
-          const q = encodeURIComponent(`${e.name} booking`);
-          window.open(
-            `https://www.google.com/search?q=${q}`,
-            "_blank",
-            "noopener,noreferrer",
-          );
+          // const q = encodeURIComponent(`${e.name} booking`);
+          // window.open(
+          //   `https://www.google.com/search?q=${q}`,
+          //   "_blank",
+          //   "noopener,noreferrer",
+          // );
         });
 
         if (!imgEl || images.length <= 1) return;
@@ -1140,16 +1167,16 @@ const ExperienceMapSection = ({
 
                   <button
                     type="button"
-                    onClick={() => {
-                      const q = encodeURIComponent(
-                        `${detailPlace.name} booking`,
-                      );
-                      window.open(
-                        `https://www.google.com/search?q=${q}`,
-                        "_blank",
-                        "noopener,noreferrer",
-                      );
-                    }}
+                    // onClick={() => {
+                    //   const q = encodeURIComponent(
+                    //     `${detailPlace.name} booking`,
+                    //   );
+                    //   window.open(
+                    //     `https://www.google.com/search?q=${q}`,
+                    //     "_blank",
+                    //     "noopener,noreferrer",
+                    //   );
+                    // }}
                     className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#dc8154] px-4 py-2 text-sm font-semibold text-[#dc8154] bg-white hover:bg-[#fff3e8] hover:border-[#c86a33] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all shadow-sm hover:shadow-md"
                   >
                     <span>🏨</span>

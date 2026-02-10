@@ -31,42 +31,42 @@ const VIETNAM_STYLES = [
   {
     id: "son-dau",
     name: "Sơn Dầu",
-    img: "https://ai-art.novaha.vn/preview/art/sondau.png",
+    img: "https://res.cloudinary.com/dypm5avrx/image/upload/v1770694658/sondau_h20ugz.jpg",
   },
   {
     id: "son-mai",
     name: "Sơn Mài",
-    img: "https://ai-art.novaha.vn/preview/art/sonmai.png",
+    img: "https://res.cloudinary.com/dypm5avrx/image/upload/v1770694659/sonmai_pzmnhi.jpg",
   },
   {
     id: "dong-ho",
     name: "Đông Hồ",
-    img: "https://ai-art.novaha.vn/preview/art/dongho.png",
+    img: "https://res.cloudinary.com/dypm5avrx/image/upload/v1770694658/dongho_mshg5f.jpg",
   },
   {
     id: "hang-trong",
     name: "Hàng Trống",
-    img: "https://ai-art.novaha.vn/preview/art/hangtrong.png",
+    img: "https://res.cloudinary.com/dypm5avrx/image/upload/v1770694657/hangtrong_bjbs7h.jpg",
   },
   {
     id: "khac-go",
     name: "Khắc Gỗ",
-    img: "https://ai-art.novaha.vn/preview/art/khacgo.png",
+    img: "https://res.cloudinary.com/dypm5avrx/image/upload/v1770694659/khacgo_e1ls7k.jpg",
   },
   {
     id: "lang-sinh",
     name: "Làng Sình",
-    img: "https://ai-art.novaha.vn/preview/art/sinhhue.png",
+    img: "https://res.cloudinary.com/dypm5avrx/image/upload/v1770694657/langsinh_devj72.jpg",
   },
   {
     id: "tranh-lua",
     name: "Tranh Lụa",
-    img: "https://ai-art.novaha.vn/preview/art/lua.png",
+    img: "https://res.cloudinary.com/dypm5avrx/image/upload/v1770694660/tranhlua_elnhph.jpg",
   },
   {
     id: "dan-toc-thieu-so",
     name: "Dân tộc thiểu số",
-    img: "https://ai-art.novaha.vn/preview/art/dantocthieuso.png",
+    img: "https://res.cloudinary.com/dypm5avrx/image/upload/v1770694657/dantocthieuso_xvhclt.jpg",
   },
 ];
 
@@ -74,47 +74,47 @@ const OTHER_STYLES = [
   {
     id: "neon",
     name: "Neon Cyberpunk",
-    img: "https://ai-art.novaha.vn/preview/art/sinhhue.png",
+    img: "https://res.cloudinary.com/dypm5avrx/image/upload/v1770695158/cyberpunk_rjdxte.webp",
   },
   {
     id: "colorful",
     name: "Màu Sắc Rực Rỡ",
-    img: "https://ai-art.novaha.vn/preview/art/sondau.png",
+    img: "https://res.cloudinary.com/dypm5avrx/image/upload/v1770695158/M%C3%A0u_S%E1%BA%AFc_R%E1%BB%B1c_R%E1%BB%A1_pziyee.jpg",
   },
   {
     id: "meme",
     name: "Meme MXH",
-    img: "https://ai-art.novaha.vn/preview/art/sonmai.png",
+    img: "https://res.cloudinary.com/dypm5avrx/image/upload/v1770695159/Meme_MXH_bzh1qt.png",
   },
   {
     id: "ads",
     name: "Quảng Cáo Thương Mại",
-    img: "https://ai-art.novaha.vn/preview/art/sinhhue.png",
+    img: "https://res.cloudinary.com/dypm5avrx/image/upload/v1770695158/Qu%E1%BA%A3ng_C%C3%A1o_Th%C6%B0%C6%A1ng_M%E1%BA%A1i_bx9msj.jpg",
   },
   {
     id: "isometric",
     name: "Isometric Sản Phẩm",
-    img: "https://ai-art.novaha.vn/preview/art/sondau.png",
+    img: "https://res.cloudinary.com/dypm5avrx/image/upload/v1770695157/Isometric_S%E1%BA%A3n_Ph%E1%BA%A9m_nbhagp.jpg",
   },
   {
     id: "tach-nen",
     name: "Tách nền + Đổ bóng",
-    img: "https://ai-art.novaha.vn/preview/art/sondau.png",
+    img: "https://res.cloudinary.com/dypm5avrx/image/upload/v1770695159/T%C3%A1ch_n%E1%BB%81n_%C4%90%E1%BB%95_b%C3%B3ng_o2casp.png",
   },
   {
     id: "thiet-ke-phang",
     name: "Thiết kế phẳng tối giản",
-    img: "https://ai-art.novaha.vn/preview/art/sonmai.png",
+    img: "https://res.cloudinary.com/dypm5avrx/image/upload/v1770695163/Thi%E1%BA%BFt_k%E1%BA%BF_ph%E1%BA%B3ng_t%E1%BB%91i_gi%E1%BA%A3n_jtswud.jpg",
   },
   {
     id: "chan-dung-dien-anh",
     name: "Chân dung điện ảnh",
-    img: "https://ai-art.novaha.vn/preview/art/sonmai.png",
+    img: "https://res.cloudinary.com/dypm5avrx/image/upload/v1770695157/Ch%C3%A2n_dung_%C4%91i%E1%BB%87n_%E1%BA%A3nh_d5qi9y.jpg",
   },
   {
     id: "den-trang",
     name: "Đen trắng cổ điển",
-    img: "https://ai-art.novaha.vn/preview/art/sonmai.png",
+    img: "https://res.cloudinary.com/dypm5avrx/image/upload/v1770695157/%C4%90en_tr%E1%BA%AFng_c%E1%BB%95_%C4%91i%E1%BB%83n_cdkqw4.webp",
   },
 ];
 
